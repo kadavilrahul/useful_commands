@@ -74,7 +74,10 @@ git commit -m "Descriptive message"
    ```bash
 git push origin main
    ```
-
+### Force push changes
+   ```bash
+git push -f origin master
+   ```
 ### Pull latest changes
    ```bash
 git pull origin main
