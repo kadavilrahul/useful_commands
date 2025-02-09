@@ -1,112 +1,169 @@
-Git Commands Documentation
-1. Initial Setup
-These commands are used to install Git and configure global settings for your user account.
+# Initial Setup:
 
-# Install Git (Ubuntu/Debian)
-sudo apt update
+### Install Git (Ubuntu/Debian)
+   ```bash
+  sudo apt update
+   ```
+   ```bash
 sudo apt install git
+   ```
 
-# Verify installation
-git --version
+### Verify installation
+   ```bash
+git –version
+   ```
 
-# Configure global credentials
+### Configure global credentials
+   ```bash
 git config --global user.name "Your Name"
-git config --global user.email "your.email@example.com"
+   ```
+   ```bash
+git config --global user.email your.email@example.com
+   ```
 
-# Verify configuration
+### Verify configuration
+   ```bash
 git config --global --list
+   ```
 
-2. Repository Setup
-Commands to initialize a new repository or clone an existing one, and set up the remote repository.
+# Repository Setup:
 
-# Initialize new repository
+### Initialize new repository
+   ```bash
 git init
+   ```
 
-# Or clone existing repository
+### Or clone existing repository
+   ```bash
 git clone https://github.com/username/repository_name.git
+   ```
+
+   ```bash
 cd repository_name
+   ```
 
-# Add remote repository
+### Add remote repository
+   ```bash
 git remote add origin https://github.com/username/repository_name.git
+   ```
 
-# Verify remote
+### Verify remote
+   ```bash
 git remote -v
+   ```
 
-3. Basic Workflow Commands
-These commands are used for the basic Git workflow, including checking status, staging, committing, and pushing changes.
+# Basic Workflow Commands:
 
-# Check repository status
+### Check repository status
+   ```bash
 git status
+   ```
 
-# Stage changes
+
+### Stage changes
+   ```bash
 git add .
+   ```
 
-# Commit changes
+### Commit changes
+   ```bash
 git commit -m "Descriptive message"
+   ```
 
-# Push changes
+### Push changes
+   ```bash
 git push origin main
+   ```
 
-# Pull latest changes
+### Pull latest changes
+   ```bash
 git pull origin main
+   ```
 
-4. Branch Management
-Commands to manage branches, including creating, switching, and viewing branch history.
+# Branch Management
 
-# List all branches
+### List all branches
+   ```bash
 git branch
+   ```
 
-# Create and switch to new branch
+### Create and switch to new branch
+   ```bash
 git checkout -b new-branch-name
+   ```
 
-# Switch between branches
+### Switch between branches
+   ```bash
 git checkout branch-name
+   ```
 
-# View branch history
-git log --oneline --decorate --all --graph
+### View branch history
+   ```bash
+git log --oneline --decorate --all –graph
+   ```
 
-5. Credential Management
-Commands to manage Git credentials, including caching and setting up remote URLs with tokens.
+# Credential Management
 
-# Store credentials (cache method)
+
+### Store credentials (cache method)
+   ```bash
 git config --global credential.helper cache
+   ```
 
-# Set credential timeout (optional)
+### Set credential timeout (optional)
+   ```bash
 git config --global credential.helper 'cache --timeout=3600'
+   ```
 
-# Set remote URL with token
+### Set remote URL with token
+   ```bash
 git remote set-url origin https://TOKEN@github.com/username/repository_name.git
+   ```
 
-6. Advanced Commands
-Additional commands for advanced Git operations, such as stashing changes and viewing commit history.
+# Advanced Commands
 
-# Stash changes
+### Stash changes
+   ```bash
 git stash
+   ```
+
+   ```bash
 git stash list
+   ```
+
+   ```bash
 git stash pop
+   ```
 
-# View commit history
-git log --oneline
+### View commit history
+   ```bash
+git log –oneline
+   ```
+
+   ```bash
 git log --pretty=format:"%h %ad %s" --date=format:"%Y-%m-%d %H:%M:%S"
+   ```
 
-# Checkout specific commit
+### Checkout specific commit
+   ```bash
 git checkout commit-hash
+   ```
 
-7. Unnecessary/Duplicate Commands
-These commands are either redundant or situational and may not be required in most workflows.
+# Additional Commands
 
-# Alternative push methods (use standard push instead)
+### Alternative push methods (use standard push instead)
+   ```bash
 git push https://token@github.com/username/repository_name.git
+   ```
 
-# Combined commands (unnecessary if using proper workflow)
+### Combined commands (unnecessary if using proper workflow)
+   ```bash
 git add . && git commit -m "Update" && git push
+   ```
 
-# Check if directory is Git repository (rarely needed)
+### Check if directory is Git repository (rarely needed)
+   ```bash
 git rev-parse --is-inside-work-tree
+   ```
 
-8. Credentials Template
-Store these securely, never in code:
 
-Username: your-github-username
-Email: your.email@example.com
-Token: your-personal-access-token
