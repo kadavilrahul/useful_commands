@@ -151,6 +151,11 @@ git log --pretty=format:"%h %ad %s" --date=format:"%Y-%m-%d %H:%M:%S"
    ```bash
 git checkout commit-hash
    ```
+### To discard all changes after a specific commit:
+   ```bash
+git reset --hard abc123
+   ```
+
 
 # Additional Commands
 
