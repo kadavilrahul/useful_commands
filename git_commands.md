@@ -154,6 +154,9 @@ git checkout commit-hash
    ```bash
 git reset --hard abc123
    ```
+   ```bash
+git push --force
+   ```
 ### Revert specific commit but not commit immediately (for manual adjustments)
    ```bash
 git revert <commit-hash> --no-commit
