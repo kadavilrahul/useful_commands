@@ -73,6 +73,11 @@ git commit -m "Descriptive message"
    ```bash
 git push origin main
    ```
+### Single command for push
+   ```bash
+git add . ; git commit -m "Update" ; git push
+   ```
+
 ### Force push changes
    ```bash
 git push -f origin master
