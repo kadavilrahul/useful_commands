@@ -126,5 +126,3 @@ When using these commands:
 3. Read the examples to understand proper usage
 4. Test commands in a safe environment first
 5. Contribute your own useful commands
-
-This is a test.
