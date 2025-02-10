@@ -59,7 +59,6 @@ git remote -v
 git status
    ```
 
-
 ### Stage changes
    ```bash
 git add .
@@ -155,7 +154,10 @@ git checkout commit-hash
    ```bash
 git reset --hard abc123
    ```
-
+### Revert specific commit but not commit immediately (for manual adjustments)
+   ```bash
+git revert <commit-hash> --no-commit
+   ```
 
 # Additional Commands
 
