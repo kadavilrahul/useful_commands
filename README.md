@@ -6,9 +6,11 @@ A comprehensive collection of commonly used commands for different operating sys
 
 This repository contains reference guides for various command-line interfaces:
 
-- [`linux_commands.md`](linux_commands.md) - Essential Linux/Unix commands
-- [`powershell_commands.md`](powershell_commands.md) - PowerShell commands for Windows
-- [`git_commands.md`](git_commands.md) - Git version control commands
+## 📱 Quick Links
+
+- [Linux Commands](linux_commands.md)
+- [PowerShell Commands](powershell_commands.md)
+- [Git Commands](git_commands.md)
 
 ## 🎯 Purpose
 
@@ -108,12 +110,6 @@ This repository is regularly updated with:
 - Always review commands before execution
 - Some commands might require elevated privileges
 - Command syntax might vary slightly between system versions
-
-## 📱 Quick Links
-
-- [Linux Commands](linux_commands.md)
-- [PowerShell Commands](powershell_commands.md)
-- [Git Commands](git_commands.md)
 
 ## 🔒 Security Note
 
