@@ -621,15 +621,15 @@ Setting Up Your Profile for Enhanced History:
 notepad $PROFILE
 ```
 
- - Add following line
+ - Add following line. Modify as required.
 
 function function-name {
     ssh user@IP
 }
 
- - Run this command or it will be run at powershell startup
-. $PROFILE
-
  - Call function to run the command like
 function-name
+
+ - Run this command to run the script and loads any functions, aliases, or variables defined in the profile into the current PowerShell session
+. $PROFILE
 ---------------------------------------------------------------
