@@ -4,52 +4,95 @@
 
 ### Directory Operations
 List Directory Contents (Shows files and folders in current directory):
-```powershell
-Get-ChildItem  # Full command
-ls             # Alias
-dir            # Alias
 
-# Example - List all .txt files:
+Full command:
+```powershell
+Get-ChildItem
+```
+
+Aliases:
+```powershell
+ls
+```
+```powershell
+dir
+```
+
+List .txt files:
+```powershell
 Get-ChildItem *.txt
-# Example - List all items including hidden:
+```
+
+List all items including hidden:
+```powershell
 Get-ChildItem -Force
 ```
 
 Change Directory (Navigate to different folder):
-```powershell
-Set-Location path  # Full command
-cd path           # Alias
 
-# Example - Change to Documents folder:
+Full command:
+```powershell
+Set-Location path
+```
+
+Alias:
+```powershell
+cd path
+```
+
+Example - Change to Documents:
+```powershell
 cd C:\Users\Username\Documents
-# Example - Go up one level:
+```
+
+Go up one level:
+```powershell
 cd ..
 ```
 
-Get Current Directory (Show where you are):
-```powershell
-Get-Location  # Full command
-pwd           # Alias
+Get Current Directory:
 
-# Example:
-pwd  # Outputs something like: C:\Users\Username
+Full command:
+```powershell
+Get-Location
 ```
 
-Create Directory (Make new folder):
+Alias:
 ```powershell
-New-Item -ItemType Directory -Path "DirectoryName"  # Full command
-mkdir DirectoryName                                 # Alias
+pwd
+```
 
-# Example - Create nested directories:
+Create Directory:
+
+Full command:
+```powershell
+New-Item -ItemType Directory -Path "DirectoryName"
+```
+
+Alias:
+```powershell
+mkdir DirectoryName
+```
+
+Create nested directories:
+```powershell
 mkdir "C:\Projects\NewProject\src"
 ```
 
-Remove Directory (Delete folder):
-```powershell
-Remove-Item -Path "DirectoryName" -Recurse  # Full command
-rmdir DirectoryName                         # Alias
+Remove Directory:
 
-# Example - Remove directory with confirmation:
+Full command:
+```powershell
+Remove-Item -Path "DirectoryName" -Recurse
+```
+
+Alias:
+```powershell
+rmdir DirectoryName
+```
+
+Remove with confirmation:
+```powershell
 Remove-Item "OldProject" -Recurse -Confirm
 ```
 
@@ -59,83 +102,142 @@ Remove-Item "OldProject" -Recurse -Confirm
 Create New File:
 ```powershell
 New-Item -ItemType File -Path "filename.txt"
+```
 
-# Example - Create file with content:
+Create file with content:
+```powershell
 New-Item -ItemType File -Path "log.txt" -Value "Initial log entry"
 ```
 
-Copy File (Duplicate files or directories):
-```powershell
-Copy-Item "source" "destination"  # Full command
-cp source destination            # Alias
+Copy File:
 
-# Example - Copy with overwrite:
+Full command:
+```powershell
+Copy-Item "source" "destination"
+```
+
+Alias:
+```powershell
+cp source destination
+```
+
+Copy with overwrite:
+```powershell
 Copy-Item "report.docx" "backup/report.docx" -Force
-# Example - Copy multiple files:
+```
+
+Copy multiple files:
+```powershell
 Copy-Item "C:\logs\*.log" "D:\backup"
 ```
 
 Move/Rename File:
-```powershell
-Move-Item "source" "destination"  # Full command
-mv source destination            # Alias
 
-# Example - Rename file:
+Full command:
+```powershell
+Move-Item "source" "destination"
+```
+
+Alias:
+```powershell
+mv source destination
+```
+
+Rename file:
+```powershell
 Move-Item "old.txt" "new.txt"
-# Example - Move to different directory:
+```
+
+Move to different directory:
+```powershell
 Move-Item "document.pdf" "C:\Archive\"
 ```
 
 Delete File:
-```powershell
-Remove-Item "filename"  # Full command
-del filename           # Alias
-rm filename           # Alias
 
-# Example - Delete with confirmation:
+Full command:
+```powershell
+Remove-Item "filename"
+```
+
+Aliases:
+```powershell
+del filename
+```
+```powershell
+rm filename
+```
+
+Delete with confirmation:
+```powershell
 Remove-Item "temp.txt" -Confirm
-# Example - Delete multiple files:
+```
+
+Delete multiple files:
+```powershell
 Remove-Item *.tmp
 ```
 
-Get File Content (Read file):
-```powershell
-Get-Content "filename"  # Full command
-cat filename           # Alias
-type filename         # Alias
+Get File Content:
 
-# Example - Read first 5 lines:
+Full command:
+```powershell
+Get-Content "filename"
+```
+
+Aliases:
+```powershell
+cat filename
+```
+```powershell
+type filename
+```
+
+Read first 5 lines:
+```powershell
 Get-Content "log.txt" -Head 5
-# Example - Read and wait for changes:
+```
+
+Read and wait for changes:
+```powershell
 Get-Content "log.txt" -Wait
 ```
 
 Write to File:
-```powershell
-# Overwrite existing content:
-Set-Content -Path "file.txt" -Value "text"
-# Append to existing content:
-Add-Content -Path "file.txt" -Value "text"
 
-# Example - Log with timestamp:
+Overwrite existing content:
+```powershell
+Set-Content -Path "file.txt" -Value "text"
+```
+
+Append to existing content:
+```powershell
+Add-Content -Path "file.txt" -Value "text"
+```
+
+Log with timestamp:
+```powershell
 Add-Content "log.txt" "$(Get-Date) - Process started"
 ```
 
 ### File Search
-Find Files (Search for files in directories):
+Find Files:
 ```powershell
 Get-ChildItem -Path "C:\" -Filter "*.txt" -Recurse
-
-# Example - Find all PowerShell scripts modified in last 24 hours:
-Get-ChildItem -Path C:\ -Filter *.ps1 -Recurse | 
-    Where-Object { $_.LastWriteTime -gt (Get-Date).AddDays(-1) }
 ```
 
-Search File Content (Find text in files):
+Find recent PowerShell scripts:
+```powershell
+Get-ChildItem -Path C:\ -Filter *.ps1 -Recurse | Where-Object { $_.LastWriteTime -gt (Get-Date).AddDays(-1) }
+```
+
+Search File Content:
 ```powershell
 Select-String -Path "*.txt" -Pattern "searchterm"
+```
 
-# Example - Find 'error' in log files:
+Search for errors in logs:
+```powershell
 Select-String -Path "C:\Logs\*.log" -Pattern "error" -Context 2,2
 ```
 
@@ -145,38 +247,63 @@ Select-String -Path "C:\Logs\*.log" -Pattern "error" -Context 2,2
 Get OS Information:
 ```powershell
 Get-ComputerInfo
+```
 
-# Example - Get specific OS info:
+Get specific OS info:
+```powershell
 Get-ComputerInfo | Select-Object WindowsVersion, OsName, OsVersion
 ```
 
 Get IP Configuration:
-```powershell
-Get-NetIPConfiguration  # Full command
-ipconfig               # Alias
 
-# Example - Get detailed IP info:
+Full command:
+```powershell
+Get-NetIPConfiguration
+```
+
+Alias:
+```powershell
+ipconfig
+```
+
+Get detailed IP info:
+```powershell
 Get-NetIPConfiguration | Select-Object InterfaceDescription, IPv4Address
 ```
 
 ### Process Management
-List Processes (Show running programs):
-```powershell
-Get-Process  # Full command
-ps           # Alias
+List Processes:
 
-# Example - Find specific process:
+Full command:
+```powershell
+Get-Process
+```
+
+Alias:
+```powershell
+ps
+```
+
+Find specific process:
+```powershell
 Get-Process -Name "chrome"
-# Example - Sort by memory usage:
+```
+
+Sort by memory usage:
+```powershell
 Get-Process | Sort-Object -Property WS -Descending | Select-Object -First 10
 ```
 
-Stop Process (End running program):
+Stop Process:
 ```powershell
 Stop-Process -Name "processname"
+```
+```powershell
 Stop-Process -Id processId
+```
 
-# Example - Stop all Chrome instances:
+Stop all Chrome instances:
+```powershell
 Stop-Process -Name "chrome" -Force
 ```
 
@@ -186,17 +313,23 @@ Stop-Process -Name "chrome" -Force
 Get Current User:
 ```powershell
 $env:USERNAME
+```
+```powershell
 whoami
+```
 
-# Example - Get full user details:
+Get full user details:
+```powershell
 whoami /all
 ```
 
 Create New User:
 ```powershell
 New-LocalUser -Name "username" -Password (ConvertTo-SecureString "password" -AsPlainText -Force)
+```
 
-# Example - Create user and add to group:
+Create user with details:
+```powershell
 $password = ConvertTo-SecureString "P@ssw0rd" -AsPlainText -Force
 New-LocalUser "JohnDoe" -Password $password -FullName "John Doe" -Description "Staff"
 Add-LocalGroupMember -Group "Users" -Member "JohnDoe"
@@ -205,21 +338,37 @@ Add-LocalGroupMember -Group "Users" -Member "JohnDoe"
 ## Network Operations
 
 ### Network Commands
-Test Connection (Check if host is reachable):
-```powershell
-Test-Connection "hostname/IP"  # Full command
-ping hostname/IP             # Alias
+Test Connection:
 
-# Example - Test with count:
+Full command:
+```powershell
+Test-Connection "hostname/IP"
+```
+
+Alias:
+```powershell
+ping hostname/IP
+```
+
+Test with count:
+```powershell
 Test-Connection "google.com" -Count 2
 ```
 
 Download File:
+
+Full command:
 ```powershell
 Invoke-WebRequest -Uri "URL" -OutFile "filename"
-wget URL -OutFile filename  # Alias
+```
 
-# Example - Download with progress:
+Alias:
+```powershell
+wget URL -OutFile filename
+```
+
+Download with progress:
+```powershell
 Invoke-WebRequest "https://example.com/file.zip" -OutFile "download.zip" -Progress
 ```
 
@@ -229,24 +378,28 @@ Invoke-WebRequest "https://example.com/file.zip" -OutFile "download.zip" -Progre
 Get/Set Execution Policy:
 ```powershell
 Get-ExecutionPolicy
+```
+```powershell
 Set-ExecutionPolicy RemoteSigned
+```
 
-# Example - Set for current user only:
+Set for current user:
+```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
 ## Error Handling
-Try-Catch Block (Handle errors gracefully):
+Try-Catch Block:
 ```powershell
 try {
-    # Attempt something risky
     Remove-Item "nonexistent.txt"
 } catch {
-    # Handle the error
     Write-Error "Failed to remove file: $_"
 }
+```
 
-# Example - Multiple error types:
+Multiple error types:
+```powershell
 try {
     $number = "abc" / 2
 } catch [DivideByZeroException] {
@@ -259,16 +412,49 @@ try {
 ```
 
 ## Common Aliases
+Clear Screen:
 ```powershell
-cls     # Clear-Host (clear screen)
-copy    # Copy-Item
-del     # Remove-Item
-dir     # Get-ChildItem
-echo    # Write-Output
-move    # Move-Item
-rd      # Remove-Item -Recurse
-ren     # Rename-Item
-type    # Get-Content
+cls
+```
+
+Copy:
+```powershell
+copy
+```
+
+Delete:
+```powershell
+del
+```
+
+List Directory:
+```powershell
+dir
+```
+
+Output:
+```powershell
+echo
+```
+
+Move:
+```powershell
+move
+```
+
+Remove Directory:
+```powershell
+rd
+```
+
+Rename:
+```powershell
+ren
+```
+
+Type File:
+```powershell
+type
 ```
 
 ## Remote Management
@@ -277,24 +463,30 @@ type    # Get-Content
 Create Remote Session:
 ```powershell
 Enter-PSSession -ComputerName "hostname"
+```
 
-# Example - Connect to remote machine:
+Connect with credentials:
+```powershell
 Enter-PSSession -ComputerName "RemotePC" -Credential (Get-Credential)
 ```
 
 Copy Files to Remote:
 ```powershell
 Copy-Item "source" -Destination "\\hostname\path" -Recurse
+```
 
-# Example - Copy files to remote machine:
+Copy files example:
+```powershell
 Copy-Item "C:\Files\*" -Destination "\\RemotePC\C$\Files\" -Recurse
 ```
 
 Execute Remote Command:
 ```powershell
 Invoke-Command -ComputerName "hostname" -ScriptBlock { command }
+```
 
-# Example - Run command on remote machine:
+Run process list remotely:
+```powershell
 Invoke-Command -ComputerName "RemotePC" -ScriptBlock { Get-Process }
 ```
 
@@ -304,32 +496,40 @@ Invoke-Command -ComputerName "RemotePC" -ScriptBlock { Get-Process }
 List Available Packages:
 ```powershell
 Get-Package
+```
 
-# Example - List all installed packages:
+List all installed:
+```powershell
 Get-Package -ListAvailable
 ```
 
 Find Package:
 ```powershell
 Find-Package "packagename"
+```
 
-# Example - Search for package:
+Search specific package:
+```powershell
 Find-Package -Name "Microsoft.PowerShell"
 ```
 
 Install Package:
 ```powershell
 Install-Package "packagename"
+```
 
-# Example - Install package:
+Install specific package:
+```powershell
 Install-Package -Name "Microsoft.PowerShell"
 ```
 
 Uninstall Package:
 ```powershell
 Uninstall-Package "packagename"
+```
 
-# Example - Uninstall package:
+Uninstall specific:
+```powershell
 Uninstall-Package -Name "Microsoft.PowerShell"
 ```
 
@@ -339,24 +539,30 @@ Uninstall-Package -Name "Microsoft.PowerShell"
 List All Environment Variables:
 ```powershell
 Get-ChildItem Env:
+```
 
-# Example - List all environment variables:
+List sorted:
+```powershell
 Get-ChildItem Env: | Sort-Object Name
 ```
 
 Get Specific Variable:
 ```powershell
 $env:VARIABLE_NAME
+```
 
-# Example - Get PATH variable:
+Get PATH:
+```powershell
 $env:PATH
 ```
 
 Set Environment Variable:
 ```powershell
 $env:VARIABLE_NAME = "value"
+```
 
-# Example - Set new variable:
+Set new variable:
+```powershell
 $env:NEW_VAR = "New Value"
 ```
 
@@ -366,24 +572,30 @@ $env:NEW_VAR = "New Value"
 Get Disk Space:
 ```powershell
 Get-PSDrive
+```
 
-# Example - Get disk space for C: drive:
+Get disk space for C: drive:
+```powershell
 Get-PSDrive -PSProvider FileSystem -Root "C:\"
 ```
 
 Get Volume Information:
 ```powershell
 Get-Volume
+```
 
-# Example - Get volume information for C: drive:
+Get volume information for C: drive:
+```powershell
 Get-Volume -DriveLetter C
 ```
 
 Get Physical Disk Info:
 ```powershell
 Get-PhysicalDisk
+```
 
-# Example - Get physical disk information:
+Get physical disk information:
+```powershell
 Get-PhysicalDisk | Select-Object FriendlyName, Size, OperationalStatus
 ```
 
