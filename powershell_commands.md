@@ -599,28 +599,37 @@ Get physical disk information:
 Get-PhysicalDisk | Select-Object FriendlyName, Size, OperationalStatus
 ```
 
-1. Setting Up Your Profile for Enhanced History
-Open your profile on powershell
+Move to root
+```powershell
+cd \
+```
 
+Move to home
+```powershell
+cd ~
+```
+
+Delete folder with all content
+```powershell
+Remove-Item -Path "C:\Path\To\Folder" -Recurse -Force
+```
+
+---------------------------------------------------------------
+Setting Up Your Profile for Enhanced History:
+ - Open your profile on powershell
+```powershell
 notepad $PROFILE
+```
 
-Add following line
+ - Add following line
 
-function connect-silkroad {
+function function-name {
     ssh user@IP
 }
 
-Run this command or it will be run at powershell startup
+ - Run this command or it will be run at powershell startup
 . $PROFILE
-Call function to run the command like
-connect-silkroad
 
-
-2. Move to root
-cd \
-
-3. Move to home
-cd ~
-
-4. Delete folder with all content
-Remove-Item -Path "C:\Path\To\Folder" -Recurse -Force
+ - Call function to run the command like
+function-name
+---------------------------------------------------------------
