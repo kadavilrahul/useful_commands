@@ -73,7 +73,12 @@ git commit -m "Descriptive message"
    ```bash
 git push origin main
    ```
-### Single command for push
+### Single command for push 
+####Linux
+   ```bash
+git add . && git commit -m "Update" && git push
+   ```
+####Windows
    ```bash
 git add . ; git commit -m "Update" ; git push
    ```
