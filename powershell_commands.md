@@ -623,7 +623,7 @@ notepad $PROFILE
 
  - Add following line. Modify as required.
 
-function function-name {
+function server_name {
     ssh user@IP
 }
 
