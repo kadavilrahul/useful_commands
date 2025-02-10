@@ -139,7 +139,7 @@ git stash pop
 
 ### View commit history
    ```bash
-git log –oneline
+git log --oneline
    ```
 
    ```bash
