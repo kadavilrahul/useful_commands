@@ -631,5 +631,7 @@ function function-name {
 function-name
 
  - Run this command to run the script and loads any functions, aliases, or variables defined in the profile into the current PowerShell session
+ ```powershell
 . $PROFILE
+```
 ---------------------------------------------------------------
