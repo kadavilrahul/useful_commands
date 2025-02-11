@@ -308,6 +308,11 @@ Remove Directory:
 ```bash
 rm -r directory
 ```
+To remove all files and subdirectories inside a directory but keep the directory itself, use:
+
+```bash
+rm -rf /path/to/directory/*
+```
 
 Force Remove Directory:
 ```bash
