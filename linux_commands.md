@@ -324,6 +324,20 @@ Copy Directory:
 ```bash
 cp -r source destination
 ```
+Examples:
+Copying a directory:
+```bash
+cp -r myfolder backup/
+```
+Copy only the contents of a directory (not the directory itself) to a new directory, use:
+
+```bash
+cp -r source/* destination/
+```
+Explanation:
+cp -r → Copies directories and files recursively.
+source/* → Copies all files and subdirectories inside source (but not source itself).
+destination/ → The target directory where the files and subdirectories will be copied
 
 Copy Directory with Spaces:
 ```bash
