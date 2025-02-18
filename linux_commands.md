@@ -308,12 +308,15 @@ Remove Directory:
 ```bash
 rm -r directory
 ```
-To remove all files and subdirectories inside a directory but keep the directory itself, use:
+Remove all files and subdirectories inside a directory but keep the directory itself, use:
 
 ```bash
 rm -rf /path/to/directory/*
 ```
-
+Remove all files and subdirectories alongwith hidden files
+```bash
+rm -rf /var/www/main.silkroademart.com/{*,.*}
+```
 Force Remove Directory:
 ```bash
 rm -rf directory
