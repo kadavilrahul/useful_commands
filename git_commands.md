@@ -1,3 +1,10 @@
+# Important:
+### Remove git directory
+   ```bash
+   find . -name ".git" -type d -print0 | xargs -0 rm -rf
+   ```
+
+
 # Initial Setup:
 
 ### Install Git (Ubuntu/Debian)
