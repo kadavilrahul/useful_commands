@@ -58,6 +58,19 @@ Each file is organized into logical categories for easy navigation:
 - Configuration
 - Advanced Features
 
+### Other scripts
+
+1. Flowchart generator for script
+
+```bash
+cd flowchart-generator
+```
+2. Login adn execute on remote linux
+
+```bash
+cd login_and_execute_on_remote_linux
+```
+
 ## 🔍 Quick Search
 
 Use your text editor's search function (usually `Ctrl+F` or `Cmd+F`) to quickly find specific commands or operations you need.
