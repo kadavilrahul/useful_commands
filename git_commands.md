@@ -3,6 +3,11 @@
    ```bash
    find . -name ".git" -type d -print0 | xargs -0 rm -rf
    ```
+### Empty a folder
+   ```bash
+   rm -rf /path/to/folder/*
+   ```
+
 
 
 # Initial Setup:
