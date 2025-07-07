@@ -1,14 +1,18 @@
 # Important:
+
+### GitHub CLI
+   ```bash
+   gh auth login
+   ```
+
 ### Remove git directory
    ```bash
    find . -name ".git" -type d -print0 | xargs -0 rm -rf
    ```
-### Empty a folder
+### Empty a folder on Linux
    ```bash
    rm -rf /path/to/folder/*
    ```
-
-
 
 # Initial Setup:
 
