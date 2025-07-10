@@ -1,5 +1,23 @@
 # VS Code Commands Reference
 
+## 📋 Table of Contents
+- [Layout Management](#layout-management)
+- [Commenting Commands](#commenting-commands)
+- [Selection and Multi-Cursor](#selection-and-multi-cursor)
+- [Navigation](#navigation)
+- [Search and Replace](#search-and-replace)
+- [Code Editing](#code-editing)
+- [Code Folding](#code-folding)
+- [Terminal](#terminal)
+- [File Management](#file-management)
+- [Window Management](#window-management)
+- [Extensions](#extensions)
+- [Git Commands](#git-commands)
+- [Debug Commands](#debug-commands)
+- [Miscellaneous](#miscellaneous)
+- [Useful Command Palette Commands](#useful-command-palette-commands)
+- [Tips for Multi-Line Editing](#tips-for-multi-line-editing)
+
 ## Layout Management
 
 ### Reset Layout

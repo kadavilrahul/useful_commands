@@ -1,5 +1,18 @@
 # Linux Commands Reference
 
+## 📋 Table of Contents
+- [Command History Management](#command-history-management)
+- [System Information](#system-information)
+- [User Management](#user-management)
+- [System Configuration](#system-configuration)
+- [Package Management](#package-management)
+- [Service Management](#service-management)
+- [File Operations](#file-operations)
+- [SSH Operations](#ssh-operations)
+- [Monitoring](#monitoring)
+- [Swap Management](#swap-management)
+- [Other Commands](#other-commands)
+
 ## Command History Management
 
 ### Re-run Previous Commands

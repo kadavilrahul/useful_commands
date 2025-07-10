@@ -2,15 +2,26 @@
 
 A comprehensive collection of commonly used commands for different operating systems and tools, organized for easy reference and learning.
 
+## 🚀 Getting Started
+
+Clone this repository to get started:
+
+```bash
+git clone https://github.com/kadavilrahul/useful_commands.git
+cd useful_commands
+```
+
 ## 📚 Contents
 
 This repository contains reference guides for various command-line interfaces:
 
 ## 📱 Quick Links
 
-- [Linux Commands](linux_commands.md)
-- [PowerShell Commands](powershell_commands.md)
-- [Git Commands](git_commands.md)
+- [Linux Commands](linux_commands.md) - Essential Linux command reference
+- [PowerShell Commands](powershell_commands.md) - Windows PowerShell commands
+- [Git Commands](git_commands.md) - Git version control commands
+- [VS Code Commands](vs_code.md) - Visual Studio Code shortcuts and commands
+- [CLI Tools Curated](cli_tools_curated.md) - Essential CLI tools for development
 
 ## 🎯 Purpose
 
@@ -58,18 +69,6 @@ Each file is organized into logical categories for easy navigation:
 - Configuration
 - Advanced Features
 
-### Other scripts
-
-1. Flowchart generator for script
-
-```bash
-cd flowchart-generator
-```
-2. Login adn execute on remote linux
-
-```bash
-cd login_and_execute_on_remote_linux
-```
 
 ## 🔍 Quick Search
 

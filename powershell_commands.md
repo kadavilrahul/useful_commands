@@ -1,5 +1,19 @@
 # PowerShell Commands Reference
 
+## 📋 Table of Contents
+- [Basic Navigation](#basic-navigation)
+- [File Operations](#file-operations)
+- [System Information](#system-information)
+- [User Management](#user-management)
+- [Network Operations](#network-operations)
+- [Script Execution](#script-execution)
+- [Error Handling](#error-handling)
+- [Common Aliases](#common-aliases)
+- [Remote Management](#remote-management)
+- [Package Management](#package-management)
+- [Environment Variables](#environment-variables)
+- [Disk Management](#disk-management)
+
 ## Basic Navigation
 
 ### Directory Operations

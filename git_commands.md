@@ -1,3 +1,15 @@
+# Git Commands Reference
+
+## 📋 Table of Contents
+- [Important](#important)
+- [Initial Setup](#initial-setup)
+- [Repository Setup](#repository-setup)
+- [Basic Workflow Commands](#basic-workflow-commands)
+- [Branch Management](#branch-management)
+- [Credential Management](#credential-management)
+- [Advanced Commands](#advanced-commands)
+- [Additional Commands](#additional-commands)
+
 # Important:
 
 ### GitHub CLI
