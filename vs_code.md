@@ -429,6 +429,8 @@ Ctrl + Shift + P → Transform to Uppercase/Lowercase
 2. **Column selection**: Hold `Shift + Alt` and drag (Windows/Linux) or `Shift + Option` and drag (Mac)
 3. **Multi-cursor**: `Alt + Click` (Windows/Linux) or `Option + Click` (Mac) for multiple cursors
 4. **Select all occurrences**: `Ctrl + Shift + L` (Windows/Linux) or `Cmd + Shift + L` (Mac)
+5. **Multi-cursor at line beginnings**: Select multiple lines, then `Alt + Shift + I` (Windows/Linux) or `Option + Shift + I` (Mac) to place cursors at the beginning of each line
+6. **Indent multiple lines**: Select lines and press `Tab` to add indentation (or `Shift + Tab` to remove)
 
 ---
 

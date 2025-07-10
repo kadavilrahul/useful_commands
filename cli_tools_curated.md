@@ -26,7 +26,14 @@ A curated list of command-line tools for eCommerce website owners, developers, a
 # Advanced file operations
 ncdu          # Interactive disk usage analyzer with ncurses interface
 duf           # Modern disk usage utility with colorful output
-exa           # Modern replacement for ls with Git integration
+eza           # Modern replacement for ls with Git integration
+  eza                    # List files in current directory
+  eza -l                 # Long format (like `ls -l`)
+  eza -la                # Long format including hidden files
+  eza -lh                # Human-readable file sizes
+  eza --tree             # Tree view of directories
+  eza --git              # Show git status per file
+  eza -l --icons         # Show file icons (needs Nerd Font terminal)
 lsd           # Next-gen ls command with icons and colors
 fd            # Simple, fast alternative to find
 bat           # Cat clone with syntax highlighting and Git integration
@@ -38,10 +45,13 @@ vidir         # Edit directory contents in your favorite editor
 # File compression & archives
 7z            # 7-Zip archiver for high compression ratios
 atool         # Archive tool wrapper for various formats
+fdupes        # Find and remove duplicate files
+jdupes        # Advanced duplicate file finder (better than fdupes)
 
 # File synchronization
 rsync         # Fast, versatile file copying tool
 rclone        # Sync files to cloud storage providers
+aria2         # Advanced download utility with resume support
 ```
 
 ## ☁️ Cloud Services
@@ -81,6 +91,8 @@ lazygit       # Simple terminal UI for Git commands
 ripgrep       # Ultra-fast text search tool (rg command)
 ag            # The Silver Searcher - fast code search
 tokei         # Count lines of code quickly
+scc           # Fast lines of code counter (better than cloc)
+diff-so-fancy # Better looking diffs with highlighting
 
 # Terminal Multiplexers
 tmux          # Terminal multiplexer for session management
@@ -89,6 +101,7 @@ zellij        # Modern terminal workspace
 
 # Package Managers
 nala          # Beautiful frontend for APT package manager
+just          # Modern command runner (better than make)
 
 # AI & Machine Learning
 huggingface-cli # Hugging Face model hub command line interface
@@ -102,19 +115,25 @@ agno          # AI-powered code generation tool
 # System Monitoring
 htop          # Interactive process viewer
 btop          # Resource monitor with modern interface
+bpytop        # Resource monitor with better interface
 glances       # Cross-platform system monitoring tool
 nvtop         # GPU process monitor
 iftop         # Network bandwidth usage monitor
 nethogs       # Network traffic monitor per process
 bandwhich     # Network utilization by process
+procs         # Modern process viewer (better than ps)
+ctop          # Container metrics and monitoring
 
 # Performance Testing
 hyperfine     # Command-line benchmarking tool
 iperf3        # Network performance measurement tool
 speedtest-cli # Internet speed test from command line
+gping         # Interactive ping tool with graphs
 
 # Log Analysis
 lnav          # Advanced log file viewer and analyzer
+entr          # Run commands when files change
+watchexec     # Execute commands when files change
 
 # Process Management
 pueue         # Task queue manager for long-running processes
@@ -131,16 +150,20 @@ awk           # Pattern scanning and processing language
 jq            # Command-line JSON processor
 yq            # YAML processor (like jq for YAML)
 rpl           # Replace text in files efficiently
+sd            # Intuitive find and replace (better than sed)
+most          # Multi-window scroll pager (better than less)
 
 # Search & Navigation
 fzf           # Fuzzy finder for command-line
 fzy           # Fast fuzzy text selector
 autojump      # Smart directory navigation
 zoxide        # Smarter cd command with frecency algorithm
+tre           # Tree listing with numbered items for quick navigation
 
 # Documentation
 tldr          # Simplified man pages with practical examples
 cheat         # Interactive cheat sheets
+navi          # Interactive cheat sheet tool
 ```
 
 ## 🎵 Multimedia & Data
@@ -153,6 +176,7 @@ imagemagick   # Image manipulation and conversion suite
 pdftk         # PDF toolkit for manipulation
 qrencode      # QR code generator
 zbar          # QR/barcode scanner
+exiftool      # Read/write metadata from files
 
 # Download Tools
 yt-dlp        # Download videos from YouTube and other sites
@@ -175,10 +199,12 @@ fping         # Send ICMP echo probes to network hosts
 netstat       # Display network connections and routing tables
 whois         # Domain registration information lookup
 dig +short yourdomain.com  # Check DNS A record of your domain
+dog           # Modern DNS lookup client (better than dig)
 
 # Security
 age           # Simple, modern file encryption tool
 pwgen         # Generate secure passwords
+rip           # Safe deletion tool (better than rm)
 ```
 
 ## 🛡️ Security & Backup
@@ -203,6 +229,7 @@ wp db export  # WordPress database export
 sha256sum     # Calculate SHA256 checksums
 md5sum        # Calculate MD5 checksums
 diff          # Compare files line by line
+dua-cli       # Disk usage analyzer (better than du)
 ```
 
 ## ⚡ Performance & Optimization
@@ -316,6 +343,7 @@ lsyncd        # Live syncing daemon
 # Job Queues
 redis-server  # In-memory data store for queues
 celery        # Distributed task queue
+pueue         # Command-line task management
 ```
 
 ## 💰 Financial & Business Intelligence
@@ -343,17 +371,29 @@ grafana-cli   # Grafana dashboard management
 - **oh-my-zsh** - Framework for managing Zsh configuration
 - **neovim** - Modern Vim with better plugin support
 - **micro** - Modern terminal text editor
+- **lynx** - CLI web browser
+  lynx https://example.com
+- **cmus** - Terminal music player
+- **mutt** - Terminal email client
+- **newsboat** - RSS feed reader
+- **buku** - Terminal bookmark manager
 
 ### System Tools
 - **chezmoi** - Manage dotfiles across multiple machines
 - **stow** - Symlink farm manager for dotfiles
 - **topgrade** - Upgrade all the things with one command
+- **lazydocker** - Terminal Docker management
+- **kdash** - Kubernetes dashboard
+- **taskwarrior** - Command-line task management
 
 ### Fun & Productivity
 - **fortune + cowsay + lolcat** - Fun terminal messages
 - **cava** - Console audio visualizer
 - **tty-clock** - Terminal clock
 - **thefuck** - Correct previous console commands
+- **figlet** - Create ASCII art text
+- **neofetch** - System information display
+- **xsel** - Access X clipboard from command line
 
 ## 🚀 Installation Examples
 
@@ -388,6 +428,14 @@ sudo mv wp-cli.phar /usr/local/bin/wp
 
 # Cloudflare Wrangler
 npm install -g wrangler
+
+# Setup authentication (after creating API token with Workers permissions)
+export CLOUDFLARE_API_TOKEN=your_token_here
+# Or add to ~/.bashrc for persistence:
+echo 'export CLOUDFLARE_API_TOKEN=your_token_here' >> ~/.bashrc
+
+# Verify authentication
+wrangler whoami
 
 # Google Cloud CLI
 curl https://sdk.cloud.google.com | bash
