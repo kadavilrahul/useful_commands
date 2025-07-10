@@ -8,6 +8,8 @@ Clone this repository to get started:
 
 ```bash
 git clone https://github.com/kadavilrahul/useful_commands.git
+```
+```bash
 cd useful_commands
 ```
 
