@@ -22,7 +22,10 @@
       "Bash(CF_API_TOKEN=7f9QrnepYOsfVitdd7AsXsj44rxH8hCVcQWbmzRT ~/go/bin/flarectl dns list)",
       "Bash(CF_API_TOKEN=7f9QrnepYOsfVitdd7AsXsj44rxH8hCVcQWbmzRT ~/go/bin/flarectl zone list)",
       "Bash(CF_API_TOKEN=7f9QrnepYOsfVitdd7AsXsj44rxH8hCVcQWbmzRT ~/go/bin/flarectl user info)",
-      "Bash(CF_API_TOKEN=7f9QrnepYOsfVitdd7AsXsj44rxH8hCVcQWbmzRT ~/go/bin/flarectl dns list --zone silkroademart.com)"
+      "Bash(CF_API_TOKEN=7f9QrnepYOsfVitdd7AsXsj44rxH8hCVcQWbmzRT ~/go/bin/flarectl dns list --zone silkroademart.com)",
+      "WebFetch(domain:dev.to)",
+      "Bash(grep:*)",
+      "Bash(rg:*)"
     ],
     "deny": []
   }

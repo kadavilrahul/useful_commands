@@ -373,6 +373,8 @@ grafana-cli   # Grafana dashboard management
 - **micro** - Modern terminal text editor
 - **lynx** - CLI web browser
   lynx https://example.com
+- **browsh** - Modern CLI web browser with graphics support
+  browsh
 - **cmus** - Terminal music player
 - **mutt** - Terminal email client
 - **newsboat** - RSS feed reader
