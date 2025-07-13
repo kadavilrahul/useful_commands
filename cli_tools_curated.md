@@ -377,8 +377,28 @@ cut           # Extract columns from text
 fzf           # Fuzzy finder for command-line
 fzy           # Fast fuzzy text selector
 autojump      # Smart directory navigation
-zoxide        # Smarter cd command with frecency algorithm
-tre           # Tree listing with numbered items for quick navigation
+zoxide        # Smarter cd command with frecency algorithm - Install: apt install zoxide
+  apt install zoxide                   # Install zoxide
+  echo 'eval "$(zoxide init bash)"' >> ~/.bashrc    # Bash integration
+  echo 'eval "$(zoxide init zsh)"' >> ~/.zshrc      # Zsh integration
+  echo 'zoxide init fish | source' >> ~/.config/fish/config.fish  # Fish integration
+  # Restart shell 
+  z documents                          # Jump to documents directory
+  z proj                               # Jump to project directory (partial match)
+  zi                                   # Interactive directory picker
+  z foo bar                            # Jump to directory matching "foo" and "bar"
+  zoxide query foo                     # Query database for directories matching "foo"
+  zoxide remove /path/to/dir           # Remove directory from database
+tre                                    # Tree listing with numbered items for quick navigation - Install: cargo install tre-command
+  apt install tre-command            # Install tre
+  tre                                  # Show current directory tree with numbers
+  tre /path/to/dir                     # Show specific directory tree
+  tre -a                               # Include hidden files
+  tre -L 3                             # Limit depth to 3 levels
+  # After running tre, use numbers to navigate:
+  cd 2                                 # Change to directory #2
+  cat 5                                # View file #5
+  vim 3                                # Edit file #3
 
 # Documentation
 tldr          # Simplified man pages with practical examples
