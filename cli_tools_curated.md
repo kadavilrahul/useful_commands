@@ -98,14 +98,20 @@ diff-so-fancy # Better looking diffs with highlighting
 tmux          # Terminal multiplexer for session management
 screen        # Terminal multiplexer with session persistence
 zellij        # Modern terminal workspace
+byobu         # Enhanced tmux/screen wrapper
 
 # Package Managers
 nala          # Beautiful frontend for APT package manager
 just          # Modern command runner (better than make)
 
+# Text Editors
+micro         # Modern text editor with intuitive shortcuts
+neovim        # Extensible vim-based editor
+
 # AI & Machine Learning
 huggingface-cli # Hugging Face model hub command line interface
 agno          # AI-powered code generation tool
+tgpt          # Terminal-based AI chatbot (GitHub project)
 ```
 
 ## 📊 Monitoring & Performance
@@ -116,6 +122,7 @@ agno          # AI-powered code generation tool
 htop          # Interactive process viewer
 btop          # Resource monitor with modern interface
 bpytop        # Resource monitor with better interface
+atop          # Advanced system and process monitor
 glances       # Cross-platform system monitoring tool
 nvtop         # GPU process monitor
 iftop         # Network bandwidth usage monitor
@@ -123,11 +130,15 @@ nethogs       # Network traffic monitor per process
 bandwhich     # Network utilization by process
 procs         # Modern process viewer (better than ps)
 ctop          # Container metrics and monitoring
+iostat        # I/O statistics for devices and partitions
+vmstat        # Virtual memory statistics
+mpstat        # Multiple processor usage
 
 # Performance Testing
 hyperfine     # Command-line benchmarking tool
 iperf3        # Network performance measurement tool
 speedtest-cli # Internet speed test from command line
+speedtest     # Internet speed test from terminal
 gping         # Interactive ping tool with graphs
 
 # Log Analysis
@@ -137,7 +148,7 @@ watchexec     # Execute commands when files change
 
 # Process Management
 pueue         # Task queue manager for long-running processes
-watchexec     # Execute commands when files change
+task-spooler  # Queue system for shell commands
 ```
 
 ## 🔍 Text Processing & Search
@@ -152,6 +163,9 @@ yq            # YAML processor (like jq for YAML)
 rpl           # Replace text in files efficiently
 sd            # Intuitive find and replace (better than sed)
 most          # Multi-window scroll pager (better than less)
+column        # Format text into columns
+join          # Join lines of files on common fields
+cut           # Extract columns from text
 
 # Search & Navigation
 fzf           # Fuzzy finder for command-line
@@ -173,6 +187,7 @@ navi          # Interactive cheat sheet tool
 # Media Processing
 ffmpeg        # Complete multimedia framework
 imagemagick   # Image manipulation and conversion suite
+convert       # ImageMagick image manipulation tool
 pdftk         # PDF toolkit for manipulation
 qrencode      # QR code generator
 zbar          # QR/barcode scanner
@@ -182,6 +197,11 @@ exiftool      # Read/write metadata from files
 yt-dlp        # Download videos from YouTube and other sites
 wget          # Network downloader
 curl          # Transfer data to/from servers
+axel          # Download accelerator
+
+# Entertainment
+ani-cli       # Anime streaming from terminal
+manga-cli     # Manga reader for terminal
 
 # Calculators
 qalculate     # Advanced calculator with unit conversion
@@ -197,14 +217,19 @@ nmap          # Network discovery and security scanner
 mtr           # Network diagnostic tool (traceroute + ping)
 fping         # Send ICMP echo probes to network hosts
 netstat       # Display network connections and routing tables
+ss            # Socket statistics (netstat replacement)
 whois         # Domain registration information lookup
 dig +short yourdomain.com  # Check DNS A record of your domain
 dog           # Modern DNS lookup client (better than dig)
+http          # HTTPie command line HTTP client
+nc            # Netcat - network utility for reading/writing network connections
+ipcalc        # IP address calculator
 
 # Security
 age           # Simple, modern file encryption tool
 pwgen         # Generate secure passwords
 rip           # Safe deletion tool (better than rm)
+strace        # System call tracer
 ```
 
 ## 🛡️ Security & Backup
@@ -375,10 +400,14 @@ grafana-cli   # Grafana dashboard management
   lynx https://example.com
 - **browsh** - Modern CLI web browser with graphics support
   browsh
+- **w3m** - Text-based web browser
 - **cmus** - Terminal music player
 - **mutt** - Terminal email client
 - **newsboat** - RSS feed reader
 - **buku** - Terminal bookmark manager
+- **weechat** - Extensible chat client
+- **fasd** - Command-line productivity booster
+- **atuin** - Shell history replacement with sync and search
 
 ### System Tools
 - **chezmoi** - Manage dotfiles across multiple machines
@@ -390,6 +419,7 @@ grafana-cli   # Grafana dashboard management
 
 ### Fun & Productivity
 - **fortune + cowsay + lolcat** - Fun terminal messages
+- **fortune** - Random quote generator
 - **cava** - Console audio visualizer
 - **tty-clock** - Terminal clock
 - **thefuck** - Correct previous console commands
