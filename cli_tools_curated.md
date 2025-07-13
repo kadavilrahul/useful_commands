@@ -25,17 +25,20 @@ A curated list of command-line tools for eCommerce website owners, developers, a
 ```bash
 # Advanced file operations - Install: apt install ncdu duf bat fd-find tree mc ranger
 ncdu                                 # Interactive disk usage analyzer with ncurses interface
+  apt install ncdu                   # Install ncdu
   ncdu /path/to/analyze              # Analyze specific directory
   ncdu -x /                          # Exclude mounted filesystems
   # Use arrow keys to navigate, 'd' to delete, 'q' to quit
 
 duf                                  # Modern disk usage utility with colorful output
+  apt install duf                    # Install duf
   duf                                # Show all mounted filesystems
   duf --sort size                    # Sort by size
   duf --only local                   # Show only local filesystems
   duf --hide-mp /snap                # Hide specific mount points
 
 eza                                  # Modern replacement for ls with Git integration - Install: already available
+                                     # Already installed on most modern systems
   eza                                # List files in current directory
   eza -l                             # Long format (like `ls -l`)
   eza -la                            # Long format including hidden files
@@ -44,77 +47,89 @@ eza                                  # Modern replacement for ls with Git integr
   eza --git                          # Show git status per file
   eza -l --icons                     # Show file icons (needs Nerd Font terminal)
 
-lsd           # Next-gen ls command with icons and colors - Install: already available
+lsd                                  # Next-gen ls command with icons and colors - Install: already available
+  # Already installed on most modern systems
   lsd -la                            # List all files with details
   lsd --tree                         # Tree view with icons
 
-fd            # Simple, fast alternative to find - Install: apt install fd-find (use as fdfind)
+fd                                   # Simple, fast alternative to find - Install: apt install fd-find (use as fdfind)
+  apt install fd-find                # Install fd (use as fdfind command)
   fdfind pattern                     # Find files matching pattern
   fdfind -e py                       # Find files with .py extension
   fdfind -t f pattern /path          # Find files only in specific path
   fdfind -H pattern                  # Include hidden files
 
-bat           # Cat clone with syntax highlighting - Install: apt install bat (use as batcat)
-  batcat filename.py                 # Show file with syntax highlighting
+bat                                  # Cat clone with syntax highlighting - Install: apt install bat (use as batcat)
+  apt install bat                    # Install bat (use as batcat command)
+  batcat /path/filename.py           # Show file with syntax highlighting
   batcat -A filename                 # Show all characters including tabs/spaces
   batcat --list-languages            # List supported languages
   echo "code" | batcat -l python     # Pipe with language specification
+  # Navigation: q = quit, Space = next page, b = previous page, /pattern = search, h = help
 
-tree          # Display directory structure as a tree
+tree                                 # Display directory structure as a tree
+  apt install tree                   # Install tree
   tree                               # Show current directory tree
   tree -L 3                          # Limit depth to 3 levels
   tree -a                            # Include hidden files
   tree -I "node_modules|__pycache__" # Ignore specific patterns
 
-mc            # Midnight Commander - powerful file manager
+mc                                   # Midnight Commander - powerful file manager
+  apt install mc                     # Install Midnight Commander
   mc                                 # Start Midnight Commander
   # F5 = copy, F6 = move, F8 = delete, F10 = quit
   # Tab = switch panels, Ctrl+O = show/hide panels
 
-ranger        # Console file manager with vi key bindings
+ranger                               # Console file manager with vi key bindings
+  apt install ranger                 # Install ranger
   ranger                             # Start ranger
   # j/k = up/down, h/l = back/forward, Space = select, q = quit
 
-vidir         # Edit directory contents in your favorite editor - Install: apt install moreutils
+vidir                                # Edit directory contents in your favorite editor - Install: apt install moreutils
+  apt install moreutils              # Install vidir
   vidir                              # Edit current directory
   vidir /path/to/dir                 # Edit specific directory
+  # Example: Opens editor showing "1  ./file1.txt", "2  ./file2.py"
+  # - Change "file1.txt" to "newname.txt" to rename file
+  # - Delete entire line to delete that file
+  # - Save and exit editor to apply all changes at once
 
 # File compression & archives - Install: apt install p7zip-full fdupes
-7z            # 7-Zip archiver for high compression ratios
+7z                                   # 7-Zip archiver for high compression ratios
   7z a archive.7z file1 file2        # Create archive
   7z x archive.7z                    # Extract archive
   7z l archive.7z                    # List archive contents
   7z t archive.7z                    # Test archive integrity
 
-atool         # Archive tool wrapper for various formats - Install: apt install atool
+atool                                # Archive tool wrapper for various formats - Install: apt install atool
   atool -x archive.tar.gz            # Extract any archive format
   atool -a archive.tar.gz files/     # Create archive
   atool -l archive.zip               # List contents
 
-fdupes        # Find and remove duplicate files
+fdupes                               # Find and remove duplicate files
   fdupes /path/to/search             # Find duplicates
   fdupes -r /path                    # Search recursively
   fdupes -d /path                    # Delete duplicates interactively
   fdupes -S /path                    # Show size of duplicates
 
-jdupes        # Advanced duplicate file finder (better than fdupes) - Install: snap install jdupes
+jdupes                               # Advanced duplicate file finder (better than fdupes) - Install: snap install jdupes
   jdupes -r /path                    # Find duplicates recursively
   jdupes -M /path                    # Print matches in machine-readable format
 
 # File synchronization - Install: apt install rsync rclone aria2
-rsync         # Fast, versatile file copying tool
+rsync                                # Fast, versatile file copying tool
   rsync -av source/ dest/            # Archive mode with verbose output
   rsync -avz --progress src/ dest/   # With compression and progress
   rsync -av --delete src/ dest/      # Delete files not in source
   rsync -av user@host:/path/ local/  # Sync from remote host
 
-rclone        # Sync files to cloud storage providers
+rclone                               # Sync files to cloud storage providers
   rclone config                      # Configure cloud storage
   rclone copy local/ remote:folder/  # Copy to cloud storage
   rclone sync local/ remote:folder/  # Sync (dangerous - deletes!)
   rclone ls remote:                  # List remote files
 
-aria2         # Advanced download utility with resume support
+aria2                                # Advanced download utility with resume support
   aria2c URL                         # Download file
   aria2c -c URL                      # Continue partial download
   aria2c -x 8 URL                    # Use 8 connections
