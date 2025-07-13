@@ -23,35 +23,102 @@ A curated list of command-line tools for eCommerce website owners, developers, a
 
 ### Commands
 ```bash
-# Advanced file operations
-ncdu          # Interactive disk usage analyzer with ncurses interface
-duf           # Modern disk usage utility with colorful output
-eza           # Modern replacement for ls with Git integration
-  eza                    # List files in current directory
-  eza -l                 # Long format (like `ls -l`)
-  eza -la                # Long format including hidden files
-  eza -lh                # Human-readable file sizes
-  eza --tree             # Tree view of directories
-  eza --git              # Show git status per file
-  eza -l --icons         # Show file icons (needs Nerd Font terminal)
-lsd           # Next-gen ls command with icons and colors
-fd            # Simple, fast alternative to find
-bat           # Cat clone with syntax highlighting and Git integration
+# Advanced file operations - Install: apt install ncdu duf bat fd-find tree mc ranger
+ncdu                                 # Interactive disk usage analyzer with ncurses interface
+  ncdu /path/to/analyze              # Analyze specific directory
+  ncdu -x /                          # Exclude mounted filesystems
+  # Use arrow keys to navigate, 'd' to delete, 'q' to quit
+
+duf                                  # Modern disk usage utility with colorful output
+  duf                                # Show all mounted filesystems
+  duf --sort size                    # Sort by size
+  duf --only local                   # Show only local filesystems
+  duf --hide-mp /snap                # Hide specific mount points
+
+eza                                  # Modern replacement for ls with Git integration - Install: already available
+  eza                                # List files in current directory
+  eza -l                             # Long format (like `ls -l`)
+  eza -la                            # Long format including hidden files
+  eza -lh                            # Human-readable file sizes
+  eza --tree                         # Tree view of directories
+  eza --git                          # Show git status per file
+  eza -l --icons                     # Show file icons (needs Nerd Font terminal)
+
+lsd           # Next-gen ls command with icons and colors - Install: already available
+  lsd -la                            # List all files with details
+  lsd --tree                         # Tree view with icons
+
+fd            # Simple, fast alternative to find - Install: apt install fd-find (use as fdfind)
+  fdfind pattern                     # Find files matching pattern
+  fdfind -e py                       # Find files with .py extension
+  fdfind -t f pattern /path          # Find files only in specific path
+  fdfind -H pattern                  # Include hidden files
+
+bat           # Cat clone with syntax highlighting - Install: apt install bat (use as batcat)
+  batcat filename.py                 # Show file with syntax highlighting
+  batcat -A filename                 # Show all characters including tabs/spaces
+  batcat --list-languages            # List supported languages
+  echo "code" | batcat -l python     # Pipe with language specification
+
 tree          # Display directory structure as a tree
+  tree                               # Show current directory tree
+  tree -L 3                          # Limit depth to 3 levels
+  tree -a                            # Include hidden files
+  tree -I "node_modules|__pycache__" # Ignore specific patterns
+
 mc            # Midnight Commander - powerful file manager
+  mc                                 # Start Midnight Commander
+  # F5 = copy, F6 = move, F8 = delete, F10 = quit
+  # Tab = switch panels, Ctrl+O = show/hide panels
+
 ranger        # Console file manager with vi key bindings
-vidir         # Edit directory contents in your favorite editor
+  ranger                             # Start ranger
+  # j/k = up/down, h/l = back/forward, Space = select, q = quit
 
-# File compression & archives
+vidir         # Edit directory contents in your favorite editor - Install: apt install moreutils
+  vidir                              # Edit current directory
+  vidir /path/to/dir                 # Edit specific directory
+
+# File compression & archives - Install: apt install p7zip-full fdupes
 7z            # 7-Zip archiver for high compression ratios
-atool         # Archive tool wrapper for various formats
-fdupes        # Find and remove duplicate files
-jdupes        # Advanced duplicate file finder (better than fdupes)
+  7z a archive.7z file1 file2        # Create archive
+  7z x archive.7z                    # Extract archive
+  7z l archive.7z                    # List archive contents
+  7z t archive.7z                    # Test archive integrity
 
-# File synchronization
+atool         # Archive tool wrapper for various formats - Install: apt install atool
+  atool -x archive.tar.gz            # Extract any archive format
+  atool -a archive.tar.gz files/     # Create archive
+  atool -l archive.zip               # List contents
+
+fdupes        # Find and remove duplicate files
+  fdupes /path/to/search             # Find duplicates
+  fdupes -r /path                    # Search recursively
+  fdupes -d /path                    # Delete duplicates interactively
+  fdupes -S /path                    # Show size of duplicates
+
+jdupes        # Advanced duplicate file finder (better than fdupes) - Install: snap install jdupes
+  jdupes -r /path                    # Find duplicates recursively
+  jdupes -M /path                    # Print matches in machine-readable format
+
+# File synchronization - Install: apt install rsync rclone aria2
 rsync         # Fast, versatile file copying tool
+  rsync -av source/ dest/            # Archive mode with verbose output
+  rsync -avz --progress src/ dest/   # With compression and progress
+  rsync -av --delete src/ dest/      # Delete files not in source
+  rsync -av user@host:/path/ local/  # Sync from remote host
+
 rclone        # Sync files to cloud storage providers
+  rclone config                      # Configure cloud storage
+  rclone copy local/ remote:folder/  # Copy to cloud storage
+  rclone sync local/ remote:folder/  # Sync (dangerous - deletes!)
+  rclone ls remote:                  # List remote files
+
 aria2         # Advanced download utility with resume support
+  aria2c URL                         # Download file
+  aria2c -c URL                      # Continue partial download
+  aria2c -x 8 URL                    # Use 8 connections
+  aria2c -i urls.txt                 # Download from URL list
 ```
 
 ## ☁️ Cloud Services
@@ -60,15 +127,33 @@ aria2         # Advanced download utility with resume support
 ```bash
 # Google Cloud Platform
 gcloud        # Official Google Cloud CLI for managing GCP resources
+  gcloud auth login                    # Authenticate with Google Cloud
+  gcloud projects list                 # List available projects
+  gcloud config set project PROJECT   # Set default project
+  gcloud compute instances list        # List VM instances
 
-# Cloudflare
+# Cloudflare - Install: npm install -g wrangler
 wrangler      # Build and deploy Cloudflare Workers applications
+  wrangler login                       # Authenticate with Cloudflare
+  wrangler init my-worker              # Create new Worker project
+  wrangler dev                         # Start local development server
+  wrangler deploy                      # Deploy Worker to Cloudflare
 
-# GitHub
+# GitHub - Install: apt install gh
 gh            # Official GitHub CLI for repository management
+  gh auth login                        # Authenticate with GitHub
+  gh repo list                         # List your repositories
+  gh repo clone OWNER/REPO             # Clone repository
+  gh pr list                           # List pull requests
+  gh issue create                      # Create new issue
 
-# Redis
+# Redis - Install: apt install redis-tools
 redis-cli     # Redis command line interface for database operations
+  redis-cli ping                       # Test Redis connection
+  redis-cli set key value              # Set a key-value pair
+  redis-cli get key                    # Get value by key
+  redis-cli keys "*"                   # List all keys
+  redis-cli flushall                   # Clear all data
 ```
 
 ### Apps & Utilities
@@ -81,32 +166,60 @@ redis-cli     # Redis command line interface for database operations
 
 ### Commands
 ```bash
-# Version Control
+# Version Control - Install: apt install git
 git           # Distributed version control system
+  git status                           # Check repository status
+  git add .                            # Stage all changes
+  git commit -m "message"              # Commit with message
+  git push origin main                 # Push to remote repository
+  git pull                             # Pull latest changes
+  git branch -a                        # List all branches
+  git checkout -b feature-branch       # Create and switch to new branch
+
 gitui         # Terminal UI for Git with intuitive interface
 tig           # Text-mode interface for Git repositories
 lazygit       # Simple terminal UI for Git commands
 
-# Code Quality & Analysis
+# Code Quality & Analysis - Install: apt install ripgrep
 ripgrep       # Ultra-fast text search tool (rg command)
+  rg "pattern" --type py               # Search in Python files
+  rg "TODO" -A 3 -B 1                 # Show context around matches
+  rg "function" --stats                # Show search statistics
+  rg "class.*:" --only-matching        # Show only matching part
+
 ag            # The Silver Searcher - fast code search
-tokei         # Count lines of code quickly
+tokei         # Count lines of code quickly - Install: cargo install tokei
 scc           # Fast lines of code counter (better than cloc)
 diff-so-fancy # Better looking diffs with highlighting
 
-# Terminal Multiplexers
+# Terminal Multiplexers - Install: apt install tmux
 tmux          # Terminal multiplexer for session management
+  tmux new-session -s mysession        # Create new session
+  tmux attach -t mysession             # Attach to session
+  tmux list-sessions                   # List all sessions
+  tmux kill-session -t mysession       # Kill session
+  # Ctrl+b % = split vertical, Ctrl+b " = split horizontal
+
 screen        # Terminal multiplexer with session persistence
 zellij        # Modern terminal workspace
 byobu         # Enhanced tmux/screen wrapper
 
-# Package Managers
+# Package Managers - Install: apt install just
 nala          # Beautiful frontend for APT package manager
 just          # Modern command runner (better than make)
+  just --list                          # List available commands
+  just --justfile justfile build       # Run build command
+  just --working-directory path cmd    # Run in specific directory
 
-# Text Editors
+# Text Editors - Install: apt install micro && snap install nvim
 micro         # Modern text editor with intuitive shortcuts
+  micro filename.txt                   # Open file for editing
+  # Ctrl+S = save, Ctrl+Q = quit, Ctrl+G = help
+
 neovim        # Extensible vim-based editor
+  nvim filename.txt                    # Open file for editing
+  # :q = quit, :w = save, :wq = save and quit
+  # i = insert mode, Esc = normal mode
 
 # AI & Machine Learning
 huggingface-cli # Hugging Face model hub command line interface
@@ -118,37 +231,115 @@ tgpt          # Terminal-based AI chatbot (GitHub project)
 
 ### Commands
 ```bash
-# System Monitoring
+# System Monitoring - Install: apt install htop glances iftop nethogs
 htop          # Interactive process viewer
-btop          # Resource monitor with modern interface
-bpytop        # Resource monitor with better interface
-atop          # Advanced system and process monitor
+  htop                               # Start interactive process viewer
+  # F2 = setup, F3 = search, F4 = filter, F5 = tree view, F9 = kill, F10 = quit
+  # Space = tag process, U = untag all, c = command line toggle
+
+btop          # Resource monitor with modern interface - Install: snap install btop
+  btop                               # Start modern resource monitor
+  # q = quit, + = zoom in, - = zoom out, m = menu
+
+bpytop        # Resource monitor with better interface - Install: pip install bpytop
+  bpytop                             # Start Python-based resource monitor
+
+atop          # Advanced system and process monitor - Install: apt install atop
+  atop                               # Start atop monitor
+  atop -w logfile                    # Write to log file
+  atop -r logfile                    # Read from log file
+
 glances       # Cross-platform system monitoring tool
-nvtop         # GPU process monitor
+  glances                            # Start glances monitor
+  glances -w                         # Web server mode
+  glances -s                         # Server mode
+  glances -c @server                 # Connect to remote server
+
+nvtop         # GPU process monitor - Install: apt install nvtop
+  nvtop                              # Monitor GPU usage (NVIDIA)
+
 iftop         # Network bandwidth usage monitor
+  iftop                              # Monitor network bandwidth
+  iftop -i eth0                      # Monitor specific interface
+  iftop -p                           # Show port numbers
+
 nethogs       # Network traffic monitor per process
-bandwhich     # Network utilization by process
-procs         # Modern process viewer (better than ps)
-ctop          # Container metrics and monitoring
-iostat        # I/O statistics for devices and partitions
+  nethogs                            # Monitor per-process network usage
+  nethogs eth0                       # Monitor specific interface
+
+bandwhich     # Network utilization by process - Install: cargo install bandwhich
+  sudo bandwhich                     # Monitor network usage by process
+
+procs         # Modern process viewer (better than ps) - Install: cargo install procs
+  procs                              # Show all processes
+  procs --tree                       # Tree view
+  procs firefox                      # Filter by process name
+
+ctop          # Container metrics and monitoring - Install: docker run --rm -ti --volumes-from ctop -v /var/run/docker.sock:/var/run/docker.sock quay.io/vektorlab/ctop:latest
+  ctop                               # Monitor Docker containers
+
+iostat        # I/O statistics for devices and partitions - Install: apt install sysstat
+  iostat                             # Show I/O statistics
+  iostat -x 1                        # Extended stats every second
+  iostat -c 1                        # CPU stats only
+
 vmstat        # Virtual memory statistics
+  vmstat                             # Show memory statistics
+  vmstat 1                           # Update every second
+  vmstat -s                          # Summary since boot
+
 mpstat        # Multiple processor usage
+  mpstat                             # Show CPU usage
+  mpstat 1                           # Update every second
+  mpstat -P ALL                      # All processors
 
-# Performance Testing
+# Performance Testing - Install: apt install speedtest-cli iperf3 && cargo install hyperfine
 hyperfine     # Command-line benchmarking tool
+  hyperfine 'command1' 'command2'    # Benchmark commands
+  hyperfine --warmup 3 'command'     # Warm up runs
+  hyperfine --export-json results.json 'cmd'  # Export results
+
 iperf3        # Network performance measurement tool
+  iperf3 -s                          # Start server
+  iperf3 -c server-ip                # Connect to server
+  iperf3 -c server-ip -P 4           # 4 parallel streams
+
 speedtest-cli # Internet speed test from command line
-speedtest     # Internet speed test from terminal
-gping         # Interactive ping tool with graphs
+  speedtest-cli                      # Run speed test
+  speedtest-cli --simple             # Simple output
+  speedtest-cli --list               # List servers
 
-# Log Analysis
+speedtest     # Internet speed test from terminal - Install: curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | sudo bash && apt install speedtest
+  speedtest                          # Run Ookla speed test
+
+gping         # Interactive ping tool with graphs - Install: cargo install gping
+  gping google.com                   # Ping with graph
+  gping google.com 1.1.1.1          # Ping multiple hosts
+
+# Log Analysis - Install: apt install lnav entr && cargo install watchexec-cli
 lnav          # Advanced log file viewer and analyzer
-entr          # Run commands when files change
-watchexec     # Execute commands when files change
+  lnav /var/log/syslog               # View system log
+  lnav /path/to/logs/                # View directory of logs
+  # Press 'h' for help, 'q' to quit
 
-# Process Management
+entr          # Run commands when files change
+  find . -name "*.py" | entr pytest # Run tests when Python files change
+  echo file.txt | entr cat file.txt  # Monitor single file
+
+watchexec     # Execute commands when files change
+  watchexec -e py pytest             # Run pytest when .py files change
+  watchexec -w src/ npm run build    # Watch specific directory
+
+# Process Management - Install: cargo install pueue && apt install task-spooler
 pueue         # Task queue manager for long-running processes
+  pueue add 'long-command'           # Add command to queue
+  pueue status                       # Show queue status
+  pueue follow 0                     # Follow task output
+
 task-spooler  # Queue system for shell commands
+  tsp command                        # Add command to queue
+  tsp -l                             # List tasks
+  tsp -c 0                           # Show task output
 ```
 
 ## 🔍 Text Processing & Search
