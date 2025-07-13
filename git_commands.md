@@ -17,6 +17,16 @@
    gh auth login
    ```
 
+### Difference
+
+   ```bash
+   git diff
+   ```
+   ```bash
+   git diff path/to/your_file.py
+   ```
+
+
 ### Remove git directory
    ```bash
    find . -name ".git" -type d -print0 | xargs -0 rm -rf
@@ -216,5 +226,4 @@ git add . && git commit -m "Update" && git push
    ```bash
 git rev-parse --is-inside-work-tree
    ```
-
 

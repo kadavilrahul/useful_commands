@@ -254,6 +254,10 @@ wp db export  # WordPress database export
 sha256sum     # Calculate SHA256 checksums
 md5sum        # Calculate MD5 checksums
 diff          # Compare files line by line
+ Compare two saved versions:
+ diff -u your_file.bak your_file.py
+ View differences side-by-side:
+ diff -y file1.py file2.py
 dua-cli       # Disk usage analyzer (better than du)
 ```
 
