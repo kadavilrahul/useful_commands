@@ -164,6 +164,10 @@ sudo -i
 ```bash
 sudo bash
 ```
+Delete user and its home directory
+```bash
+sudo userdel -r username
+```
 
 ### User Information
 Show Logged in Users:
