@@ -34,6 +34,43 @@ wsl --install
 
 After performing these steps, you should no longer encounter the `0x8007019e` error when attempting to install or use WSL.
 
+## Upgrading WSL 1 to WSL 2
+
+If you encounter the error "WSL 1 is not supported. Please upgrade to WSL 2 or above" when installing packages like `@anthropic-ai/claude-code`, follow these steps:
+
+### 1. Check Current WSL Version
+```powershell
+wsl -l -v
+```
+
+### 2. Enable Virtual Machine Platform
+Run in PowerShell as Administrator:
+```powershell
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+```
+Restart your system after this.
+
+### 3. Install WSL 2 Kernel Update
+Download and install from Microsoft's official page: [WSL 2 Linux Kernel Update Package](https://aka.ms/wsl2kernel)
+
+### 4. Set WSL 2 as Default (Optional)
+```powershell
+wsl --set-default-version 2
+```
+
+### 5. Convert Existing Distribution to WSL 2
+```powershell
+wsl --set-version Ubuntu-24.04 2
+```
+Replace `Ubuntu-24.04` with your actual distribution name from step 1.
+
+### 6. Confirm Upgrade
+```powershell
+wsl -l -v
+```
+Should show VERSION 2 for your distribution.
+
 ## Uninstall WSL on Windows
 
 ```powershell
@@ -366,10 +403,3 @@ alias gp='git push'
 # System info
 alias sysinfo='uname -a && lsb_release -a'
 ```
-
-
-
-
-
-
-
