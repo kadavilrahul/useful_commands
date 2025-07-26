@@ -451,6 +451,21 @@ http          # HTTPie command line HTTP client
 nc            # Netcat - network utility for reading/writing network connections
 ipcalc        # IP address calculator
 
+# Password & Authentication Tools - Install: apt install sshpass expect
+sshpass       # SSH password authentication tool
+  sshpass -p 'password' ssh user@host        # SSH with password
+  sshpass -f passwordfile ssh user@host      # SSH with password from file
+  sshpass -p 'password' scp file user@host:/path  # SCP with password
+
+expect        # Automate interactive programs with passwords
+  expect -c "spawn su; expect 'Password:'; send 'password\r'; interact"  # Automate su command
+  expect -c "spawn ssh user@host; expect 'password:'; send 'pass\r'; interact"  # Automate SSH
+
+# Built-in password handling
+sudo -S       # Read password from stdin
+  echo 'password' | sudo -S command          # Sudo with password from stdin
+  printf 'password\n' | sudo -S apt update   # Alternative syntax
+
 # Security
 age           # Simple, modern file encryption tool
 pwgen         # Generate secure passwords
