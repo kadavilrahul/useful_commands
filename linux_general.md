@@ -179,6 +179,11 @@ Distribution Information:
 lsb_release -a
 ```
 
+Server Hostname:
+```bash
+hostname
+```
+
 ### Disk Usage
 Root Partition Usage:
 ```bash
@@ -501,6 +506,11 @@ View Log File:
 tail -f /var/log/apache2/error.log
 ```
 
+View System Logs:
+```bash
+tail -f /var/log/syslog
+```
+
 ## Swap Management
 Create Swap File:
 ```bash
@@ -521,84 +531,58 @@ Make Swap Permanent:
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
 
-## Other Commands
-Below are the original commands that need to be reviewed and organized:
+## Additional Examples
 
-SSH into Remote Server:
-```bash
-which sshpass || (apt-get update && apt-get install -y sshpass)
-sshpass -p "password" ssh -o StrictHostKeyChecking=no user@host
-```
-
-Check Language:
-```bash
-locale
-```
-
-Check Available Languages:
-```bash
-locale -a
-```
-
-Change Language:
-```bash
-sudo nano /etc/default/locale
-```
-
-Empty Specific Folders:
-```bash
-sudo rm -rf /var/www/new.silkroademart.com/*
-sudo rm -rf /website_backups/*
-sudo rm -rf /var/www/test.silkroademart.com/wp-content*
-sudo rm -rf /website_backups/extracted_backup
-```
-
+### Advanced File Operations
 Remove Files with Spaces:
 ```bash
-sudo rm -rf "/root/duplicate detection 03"
-sudo rm -rf /root/Codes/ebay_scraper
-sudo rm -rf /home/rahuldineshk/Documents/codes/browser-use-ubuntu-minimal
+sudo rm -rf "/path/to/folder with spaces"
 ```
 
-Empty a File:
+Move Large Files:
 ```bash
-> /root/.ssh/authorized_keys
-```
-
-Move Files and Folders:
-```bash
-mv /home/rahuldineshk/Downloads/silkroademart_www_backup_2024-12-20_02-00-01.tar.gz /website_backups/
-mv /website_backups/www/silkroademart.com/wp-content /var/www/test.silkroademart.com/
+mv /source/large_file.tar.gz /destination/
 ```
 
 Copy Folders with Spaces:
 ```bash
-cp -r "/root/duplicate detection 02" "/root/duplicate detection 03"
-cp -r "/root/duplicate detection 02/" "/root/duplicate detection 03"
-mv "/root/duplicate detection 03/duplicate detection 02/"* "/root/duplicate detection 03/"
+cp -r "/source folder" "/destination folder"
 ```
 
-Find Files:
-```bash
-apt install plocate
-locate myfile.txt
-```
-
-Search in Files:
-```bash
-grep -r "pattern" /path/to/search
-```
-
-Example:
+### Log Analysis
+Search for Errors in Logs:
 ```bash
 grep -r "error" /var/log
 ```
 
-Check Server Hostname:
+Monitor Multiple Log Files:
 ```bash
-hostname
+tail -f /var/log/apache2/error.log /var/log/syslog
 ```
 
-View Log Files:
+### File Operations Examples
+Remove Files with Spaces:
 ```bash
-tail -f /var/log/apache2/error.log
+sudo rm -rf "/root/duplicate detection 03"
+```
+
+Move Files:
+```bash
+mv /source/file.tar.gz /destination/
+```
+
+Copy Folders with Spaces:
+```bash
+cp -r "/source folder" "/destination folder"
+```
+
+Search Example:
+```bash
+grep -r "error" /var/log
+```
+
+### Additional Examples
+Search in Log Files:
+```bash
+grep -r "error" /var/log
+```

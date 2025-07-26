@@ -14,8 +14,7 @@ Emacs is a powerful, extensible text editor that has been around since the 1970s
 
 ### Ubuntu/Debian
 ```bash
-sudo apt update
-sudo apt install emacs
+sudo apt update && sudo apt install emacs -y
 ```
 
 ### Alternative Installation Methods

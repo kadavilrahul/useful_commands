@@ -26,7 +26,7 @@ This repository contains reference guides for various command-line interfaces, e
 ### ✏️ Text Editors & IDEs
 - [**VS Code Commands**](vs_code.md) - Visual Studio Code shortcuts, commands, and productivity tips
 - [**Helix Editor**](helix.md) - Complete guide to Helix editor for VS Code users (with hands-on exercises)
-- [**Emacs Editor**](EMACS.md) - Comprehensive Emacs guide for VS Code users (with practical exercises)
+- [**Emacs Editor**](emacs.md) - Comprehensive Emacs guide for VS Code users (with practical exercises)
 - [**Neovim Guide**](nvim.md) - Neovim usage guide for VS Code users
 - [**Editor Comparison**](file_editors_comparison.md) - Command comparison between VS Code, Neovim, and Helix
 
@@ -99,7 +99,7 @@ Each command comes with:
 
 ### Editor Guides
 - **helix.md** - Complete Helix editor guide with 6 hands-on exercises
-- **EMACS.md** - Comprehensive Emacs guide with 6 practical exercises
+- **emacs.md** - Comprehensive Emacs guide with 6 practical exercises
 - **nvim.md** - Neovim transition guide for VS Code users
 - **vs_code.md** - VS Code shortcuts and productivity features
 - **file_editors_comparison.md** - Cross-editor command reference
@@ -194,6 +194,13 @@ This repository is regularly updated with:
 - **Updated best practices** and modern workflows
 
 ## 📌 Important Notes
+
+### 🔗 Cross-References
+To avoid duplication, files reference each other:
+- **Installation commands** - See `linux_general.md` for system commands
+- **Git workflows** - Complete reference in `git.md`
+- **Docker setup** - Detailed in `cli_tools_curated.md`
+- **Editor installations** - Standardized across all editor files
 
 ### ⚠️ Safety First
 - **Test commands** in safe environments before production use

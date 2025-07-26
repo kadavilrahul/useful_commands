@@ -661,15 +661,15 @@ grafana-cli   # Grafana dashboard management
 
 ### Ubuntu/Debian
 ```bash
-# Essential tools
+# Essential tools and dependencies
 sudo apt update && sudo apt install -y \
   htop ncdu duf bat exa fd-find ripgrep \
   tmux git curl wget ffmpeg imagemagick \
   tree mc ranger vim neovim mysql-client \
-  fail2ban ufw certbot jpegoptim optipng
+  fail2ban ufw certbot jpegoptim optipng \
+  python3-pip
 
 # Web scraping tools
-sudo apt install -y python3-pip
 pip3 install scrapy beautifulsoup4 selenium requests
 
 # Modern alternatives (via snap/cargo)
@@ -705,13 +705,9 @@ curl https://sdk.cloud.google.com | bash
 
 ### Redis & Caching Setup
 ```bash
-# Redis installation
-sudo apt install redis-server
-sudo systemctl enable redis-server
-
-# Memcached
-sudo apt install memcached
-sudo systemctl enable memcached
+# Install caching services
+sudo apt install redis-server memcached -y
+sudo systemctl enable redis-server memcached
 ```
 
 ### Using Package Managers

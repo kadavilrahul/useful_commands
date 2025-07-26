@@ -85,8 +85,7 @@ For HyperV issues, check this [Microsoft documentation](https://learn.microsoft.
 ## Initial Setup
 
 ```bash
-sudo apt update
-sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 ```
 
 ## File Transfer Between Windows and WSL
@@ -265,11 +264,8 @@ systemd = true
 
 ### Install Essential Tools
 ```bash
-# Update package list
-sudo apt update && sudo apt upgrade -y
-
-# Install build essentials
-sudo apt install build-essential curl wget git vim nano -y
+# Install development environment
+sudo apt update && sudo apt upgrade -y && sudo apt install build-essential curl wget git vim nano -y
 
 # Install Node.js via NodeSource
 curl -fsSL https://deb.nodesource.com/setup_lts.x | sudo -E bash -
@@ -278,10 +274,8 @@ sudo apt install nodejs -y
 # Install Python and pip
 sudo apt install python3 python3-pip -y
 
-# Install Docker
-curl -fsSL https://get.docker.com -o get-docker.sh
-sudo sh get-docker.sh
-sudo usermod -aG docker $USER
+# Install Docker (see cli_tools_curated.md for complete setup)
+curl -fsSL https://get.docker.com -o get-docker.sh && sudo sh get-docker.sh && sudo usermod -aG docker $USER
 ```
 
 ### SSH Setup
@@ -394,7 +388,7 @@ alias ...='cd ../..'
 alias windir='cd /mnt/c/Users/$USER'
 alias reload='source ~/.bashrc'
 
-# Git shortcuts
+# Git shortcuts (see git.md for complete reference)
 alias gs='git status'
 alias ga='git add'
 alias gc='git commit'

@@ -40,10 +40,7 @@
 
 ### Install Git (Ubuntu/Debian)
    ```bash
-  sudo apt update
-   ```
-   ```bash
-sudo apt install git
+sudo apt update && sudo apt install git -y
    ```
 
 ### Verify installation
@@ -111,13 +108,12 @@ git commit -m "Descriptive message"
    ```bash
 git push origin main
    ```
-### Single command for push 
-#### Linux
+### Combined workflow commands
    ```bash
+# Linux/Mac
 git add . && git commit -m "Update" && git push
-   ```
-#### Windows
-   ```bash
+
+# Windows
 git add . ; git commit -m "Update" ; git push
    ```
 
@@ -217,10 +213,7 @@ git revert <commit-hash> --no-commit
 git push https://token@github.com/username/repository_name.git
    ```
 
-### Combined commands (unnecessary if using proper workflow)
-   ```bash
-git add . && git commit -m "Update" && git push
-   ```
+
 
 ### Check if directory is Git repository (rarely needed)
    ```bash

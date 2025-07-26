@@ -16,16 +16,16 @@ Think of Neovim as a **highly customizable, terminal-based VS Code** with some k
 ### Installation (Quick Setup)
 ```bash
 # Ubuntu/Debian
-sudo apt install neovim
+sudo apt update && sudo apt install neovim -y
+
+# Snap (alternative)
+sudo snap install nvim --classic
 
 # macOS
 brew install neovim
 
 # Arch Linux
 sudo pacman -S neovim
-
-# Or use snap
-sudo snap install nvim --classic
 ```
 
 ### Opening Files (Like VS Code's File Explorer)
