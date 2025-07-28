@@ -191,7 +191,35 @@ git           # Distributed version control system
   git branch -a                        # List all branches
   git checkout -b feature-branch       # Create and switch to new branch
 
-gitui         # Terminal UI for Git with intuitive interface
+gitui         # Terminal UI for Git with intuitive interface - Install: Download from GitHub releases
+  # Installation
+  wget -c https://github.com/gitui-org/gitui/releases/latest/download/gitui-linux-x86_64.tar.gz -O - | tar xz
+  mv gitui ~/.local/bin/
+  
+  # Basic Usage
+  gitui                               # Start GitUI in current directory
+  gitui -d /path/to/repo              # Start in specific repository
+  gitui --watcher                     # Use file system watcher for better performance
+  
+  # Key Features:
+  # - Terminal-based Git UI with real-time updates
+  # - Keyboard-driven with vim-like keybindings
+  # - Branch management and merging
+  # - Commit history with visual graph
+  # - Interactive staging/unstaging
+  # - Side-by-side and unified diff views
+  
+  # Key Shortcuts (inside GitUI):
+  # Tab = Switch between panels
+  # q = Quit
+  # ? = Help menu
+  # c = Commit
+  # p = Push
+  # f = Fetch
+  # Enter = Stage/unstage files
+  # Space = Show diff
+  # 1-5 = Switch between different views
+
 tig           # Text-mode interface for Git repositories
 lazygit       # Simple terminal UI for Git commands
 
@@ -216,8 +244,77 @@ tmux          # Terminal multiplexer for session management
   # Ctrl+b % = split vertical, Ctrl+b " = split horizontal
 
 screen        # Terminal multiplexer with session persistence
-zellij        # Modern terminal workspace
 byobu         # Enhanced tmux/screen wrapper
+
+zellij        # Modern terminal workspace - Install: Download from GitHub releases
+  # Installation
+  wget -c https://github.com/zellij-org/zellij/releases/latest/download/zellij-x86_64-unknown-linux-musl.tar.gz -O - | tar xz
+  mv zellij ~/.local/bin/
+  
+  # Basic Usage
+  zellij                              # Start new session
+  zellij -s project-name              # Start with specific session name
+  zellij -l default                   # Start with layout
+  zellij attach session-name          # Attach to existing session
+  zellij list-sessions                # List all sessions
+  zellij kill-session session-name    # Kill specific session
+  
+  # Key Bindings (Default Mode)
+  # Session Management:
+  # Ctrl+p + d = Detach from session (keeps running)
+  # Ctrl+p + q = Quit zellij completely
+  
+  # Pane Management:
+  # Ctrl+p + n = New pane (split right)
+  # Ctrl+p + d = New pane (split down)
+  # Ctrl+p + x = Close current pane
+  # Ctrl+p + f = Toggle fullscreen pane
+  # Ctrl+p + z = Toggle pane zoom
+  
+  # Navigation:
+  # Ctrl+p + h/j/k/l = Move between panes (vim-style)
+  # Ctrl+p + ←/↓/↑/→ = Move between panes (arrows)
+  # Ctrl+p + [ = Previous pane
+  # Ctrl+p + ] = Next pane
+  
+  # Tab Management:
+  # Ctrl+p + t = New tab
+  # Ctrl+p + w = Close current tab
+  # Ctrl+p + 1/2/3... = Switch to tab by number
+  # Ctrl+p + Tab = Switch to next tab
+  
+  # Resize Mode:
+  # Ctrl+p + r = Enter resize mode (use h/j/k/l to resize, Esc to exit)
+  
+  # Help & Info:
+  # Ctrl+p + ? = Show help
+  # Ctrl+p + i = Show session info
+  
+  # Advanced Commands
+  zellij run -- htop                   # Run command in new pane
+  zellij edit ~/.bashrc                # Edit file (opens in new pane)
+  echo "Hello" | zellij pipe           # Pipe data to zellij
+  zellij kill-all-sessions             # Kill all sessions
+  
+  # Configuration (create ~/.config/zellij/config.kdl)
+  mkdir -p ~/.config/zellij
+  # Basic config with custom keybindings:
+  # default_shell "bash"
+  # mouse_mode true
+  # pane_frames true
+  # theme "default"
+  # keybinds { normal { bind "Alt n" { NewPane; } } }
+  
+  # Custom Layouts (create ~/.config/zellij/layouts/dev.kdl)
+  mkdir -p ~/.config/zellij/layouts
+  zellij -l dev                        # Start with custom layout
+  
+  # Tips:
+  # - Use named sessions for different projects
+  # - Detach (Ctrl+p + d) vs Quit to keep sessions running
+  # - Mouse support: click to switch panes, scroll in panes
+  # - Copy mode: Ctrl+p + [ to enter, navigate with vim keys
+  # - Status bar shows available shortcuts for current mode
 
 # Package Managers - Install: apt install just
 nala          # Beautiful frontend for APT package manager
@@ -712,27 +809,200 @@ grafana-cli   # Grafana dashboard management
 ### Window Managers & Desktop Environment
 - **niri** - Scrollable-tiling Wayland compositor - Install: Build from source
   ```bash
-  # Install dependencies (Ubuntu/Debian)
-  sudo apt install build-essential rustc cargo libxkbcommon-dev \
-    libwayland-dev libinput-dev libdbus-1-dev libsystemd-dev \
-    libudev-dev libseat-dev libdrm-dev libgbm-dev libegl-dev \
-    libgles2-mesa-dev libpango1.0-dev libcairo-gobject2 \
+  # ⚠️  GUI-ONLY TOOL - Wayland compositor for desktop environment
+  
+  # Step 1: Check package availability (will fail - not in Ubuntu repos)
+  apt-get update && apt-get install -y niri  # Expected to fail
+  
+  # Step 2: Verify build requirements
+  which cargo  # Confirm Rust is available
+  
+  # Step 3: Install build dependencies
+  apt-get install -y build-essential libwayland-dev libxkbcommon-dev \
+    libegl1-mesa-dev libgles2-mesa-dev libdrm-dev libgbm-dev \
+    libinput-dev libdbus-1-dev libsystemd-dev libseat-dev \
+    libpipewire-0.3-dev libpango1.0-dev libcairo-gobject2 \
     libgtk-4-dev libadwaita-1-dev
   
-  # Clone and build niri
-  git clone https://github.com/YaLTeR/niri.git
-  cd niri
-  cargo build --release
+  # Step 4: Update Rust toolchain (required for compatibility)
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+  source ~/.cargo/env  # Updates from 1.75.0 to 1.88.0
   
-  # Install binary
-  sudo cp target/release/niri /usr/local/bin/
+  # Step 5: Clone niri repository
+  cd /tmp && git clone https://github.com/YaLTeR/niri.git && cd niri
   
-  # Create config directory and copy example config
-  mkdir -p ~/.config/niri
-  cp resources/default-config.kdl ~/.config/niri/config.kdl
+  # Step 6: Fix missing dependencies (install as build errors appear)
+  # First build attempt will fail - missing clang
+  apt-get install -y clang libclang-dev
+  # Second build attempt will fail - missing libdisplay-info
+  apt-get install -y libdisplay-info-dev
   
-  # Start niri (from TTY)
+  # Step 7: Successfully build niri
+  cd /tmp/niri && source ~/.cargo/env && cargo build --release
+  # Build completes successfully in ~4m 39s
+  
+  # Step 8: Install to system
+  cp /tmp/niri/target/release/niri /usr/local/bin/
+  chmod +x /usr/local/bin/niri
+  
+  # Step 9: Verify installation
+  niri --version  # Output: niri 25.05.1 (v25.05.1-71-gfefc0bc0)
+  
+  # Key Success Factors:
+  # - Incremental dependency resolution: Fix missing deps as build errors appear
+  # - Rust version compatibility: Update from 1.75.0 to 1.88.0 to meet requirements
+  # - Manual binary installation: Use built binary instead of cargo install
+  # - Comprehensive dependency installation: Install all Wayland compositor deps
+  
+  # USAGE GUIDE - How to Use Niri
+  
+  # 1. Starting Niri (3 options):
+  # Option A: From TTY (Recommended for first time)
+  # Switch to TTY (Ctrl+Alt+F2, F3, etc.), login and run:
   niri
+  
+  # Option B: Nested mode (runs in window within current desktop)
+  niri --session
+  
+  # Option C: Add to Display Manager
+  sudo tee /usr/share/wayland-sessions/niri.desktop << 'EOF'
+[Desktop Entry]
+Name=Niri
+Comment=A scrollable-tiling Wayland compositor
+Exec=/usr/local/bin/niri --session
+Type=Application
+EOF
+  
+  # 2. Create Desktop Entry (makes niri searchable in app launcher)
+  sudo tee /usr/share/applications/niri.desktop << 'EOF'
+[Desktop Entry]
+Name=Niri
+Comment=A scrollable-tiling Wayland compositor
+Exec=/usr/local/bin/niri --session
+Type=Application
+Categories=System;Settings;
+Icon=preferences-desktop-display
+EOF
+  
+  # 3. Install Essential Wayland Applications
+  apt-get install -y alacritty fuzzel waybar firefox-esr
+  
+  # 4. Create Basic Configuration
+  mkdir -p ~/.config/niri
+  tee ~/.config/niri/config.kdl << 'EOF'
+// Niri configuration file
+// See: https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+
+input {
+    keyboard {
+        xkb {
+            layout "us"
+        }
+    }
+    touchpad {
+        tap
+        natural-scroll
+        accel-speed 0.2
+    }
+}
+
+binds {
+    // Mod key is Super (Windows key)
+    Mod+Return { spawn "alacritty"; }  // Terminal
+    Mod+D { spawn "fuzzel"; }          // App launcher
+    Mod+Q { close-window; }            // Close window
+    
+    // Window management
+    Mod+Left  { focus-column-left; }
+    Mod+Right { focus-column-right; }
+    Mod+Up    { focus-window-up; }
+    Mod+Down  { focus-window-down; }
+    
+    // Move windows
+    Mod+Shift+Left  { move-column-left; }
+    Mod+Shift+Right { move-column-right; }
+    Mod+Shift+Up    { move-window-up; }
+    Mod+Shift+Down  { move-window-down; }
+    
+    // Workspaces
+    Mod+1 { focus-workspace 1; }
+    Mod+2 { focus-workspace 2; }
+    Mod+3 { focus-workspace 3; }
+    Mod+4 { focus-workspace 4; }
+    
+    // Move to workspace
+    Mod+Shift+1 { move-column-to-workspace 1; }
+    Mod+Shift+2 { move-column-to-workspace 2; }
+    Mod+Shift+3 { move-column-to-workspace 3; }
+    Mod+Shift+4 { move-column-to-workspace 4; }
+    
+    // Screenshots
+    Print { screenshot; }
+    Mod+Print { screenshot-screen; }
+    
+    // System
+    Mod+Shift+E { quit; }              // Exit niri
+}
+
+layout {
+    gaps 16
+    default-column-width { proportion 0.5; }
+    border {
+        enable
+        width 4
+        active-color "#ffc87f"
+        inactive-color "#505050"
+    }
+}
+
+window-rule {
+    match app-id="firefox"
+    default-column-width { proportion 0.75; }
+}
+
+prefer-no-csd
+EOF
+  
+  # 5. Key Bindings Reference:
+  # Window Management:
+  # Super + Return = Open terminal (alacritty)
+  # Super + D = Open app launcher (fuzzel)
+  # Super + Q = Close current window
+  # Super + Arrow Keys = Navigate between windows/columns
+  # Super + Shift + Arrow Keys = Move windows/columns
+  
+  # Workspaces:
+  # Super + 1,2,3,4 = Switch to workspace
+  # Super + Shift + 1,2,3,4 = Move window to workspace
+  
+  # Screenshots:
+  # Print Screen = Interactive screenshot
+  # Super + Print Screen = Screenshot current screen
+  
+  # System:
+  # Super + Shift + E = Exit niri
+  
+  # 6. How Niri Works:
+  # - Scrollable Tiling: Windows arranged in columns on infinite horizontal strip
+  # - Each column contains multiple windows stacked vertically
+  # - Scroll left/right through columns, up/down within columns
+  # - Opening new windows never resizes existing ones
+  # - Dynamic workspaces arranged vertically per monitor
+  
+  # 7. Quick Start:
+  # Test in nested mode: niri --session
+  # Try key bindings: Super+Return (terminal), Super+D (launcher)
+  # For full experience: Switch to TTY (Ctrl+Alt+F2) and run: niri
+  
+  # 8. Troubleshooting:
+  # - Run from TTY, not within another desktop environment
+  # - Verify config syntax: niri validate
+  # - Check applications are installed and in PATH
+  
+  # 9. Resources:
+  # Wiki: https://github.com/YaLTeR/niri/wiki/Getting-Started
+  # Config: https://github.com/YaLTeR/niri/wiki/Configuration:-Overview
+  # Matrix Chat: https://matrix.to/#/#niri:matrix.org
   ```
 
 ### Fun & Productivity
@@ -988,3 +1258,6 @@ wp cache flush --path=/var/www/html
 **Note:** Some tools may require additional setup or API keys for full functionality. Always verify installation instructions from official sources.
 
 > 💡 **For eCommerce owners:** Focus on automation tools (rsync, rclone, watch), monitoring (htop, glances, speedtest-cli), and API integrations (Google services, WordPress CLI) to streamline your operations.
+
+
+
