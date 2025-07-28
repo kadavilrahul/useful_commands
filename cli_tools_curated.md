@@ -374,9 +374,22 @@ join          # Join lines of files on common fields
 cut           # Extract columns from text
 
 # Search & Navigation
-fzf           # Fuzzy finder for command-line
+fzf           # Fuzzy finder for command-line - Install: apt install fzf
+  apt install fzf                      # Install fzf
+  fzf                                  # Interactive file finder
+  history | fzf                        # Search command history
+  find . -type f | fzf                 # Find files interactively
+  # Ctrl+R integration for history search (after setup)
+  # Ctrl+T for file completion, Alt+C for directory completion
+
 fzy           # Fast fuzzy text selector
-autojump      # Smart directory navigation
+autojump      # Smart directory navigation - Install: apt install autojump
+  apt install autojump                 # Install autojump
+  echo '. /usr/share/autojump/autojump.sh' >> ~/.bashrc  # Bash integration
+  j documents                          # Jump to documents directory
+  j proj                               # Jump to project directory (partial match)
+  jo music                             # Open directory in file manager
+
 zoxide        # Smarter cd command with frecency algorithm - Install: apt install zoxide
   apt install zoxide                   # Install zoxide
   echo 'eval "$(zoxide init bash)"' >> ~/.bashrc    # Bash integration
@@ -389,6 +402,7 @@ zoxide        # Smarter cd command with frecency algorithm - Install: apt instal
   z foo bar                            # Jump to directory matching "foo" and "bar"
   zoxide query foo                     # Query database for directories matching "foo"
   zoxide remove /path/to/dir           # Remove directory from database
+
 tre                                    # Tree listing with numbered items for quick navigation - Install: cargo install tre-command
   apt install tre-command            # Install tre
   tre                                  # Show current directory tree with numbers
@@ -401,9 +415,28 @@ tre                                    # Tree listing with numbered items for qu
   vim 3                                # Edit file #3
 
 # Documentation
-tldr          # Simplified man pages with practical examples
-cheat         # Interactive cheat sheets
-navi          # Interactive cheat sheet tool
+tldr          # Simplified man pages with practical examples - Install: apt install tldr
+  apt install tldr                     # Install tldr
+  tldr ls                              # Get examples for ls command
+  tldr tar                             # Get examples for tar command
+  tldr --update                        # Update tldr database
+  tldr --list                          # List all available commands
+
+cheat         # Interactive cheat sheets - Install: snap install cheat
+  cheat ls                             # Show cheat sheet for ls
+  cheat -l                             # List available cheat sheets
+  cheat -e ls                          # Edit cheat sheet for ls
+
+navi          # Interactive cheat sheet tool - Install: cargo install navi
+  navi                                 # Start interactive cheat sheet browser
+  navi --print                         # Print command without executing
+
+# Enhanced History Tools
+atuin         # Shell history replacement with sync and search - Install: cargo install atuin
+  cargo install atuin                  # Install atuin
+  atuin import auto                    # Import existing history
+  atuin sync                           # Sync history across machines
+  # Ctrl+R for enhanced history search (after setup)
 ```
 
 ## 🎵 Multimedia & Data
@@ -638,13 +671,28 @@ grafana-cli   # Grafana dashboard management
 
 ### Terminal Enhancements
 - **fish/zsh** - Advanced shells with better autocompletion
+  ```bash
+  # Fish shell - Install: apt install fish
+  apt install fish                     # Install fish shell
+  chsh -s /usr/bin/fish               # Set as default shell
+  fish_config                         # Open web-based configuration
+  
+  # Zsh with Oh My Zsh - Install: apt install zsh
+  apt install zsh                     # Install zsh
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"  # Install Oh My Zsh
+  chsh -s /bin/zsh                    # Set as default shell
+  ```
 - **oh-my-zsh** - Framework for managing Zsh configuration
 - **neovim** - Modern Vim with better plugin support
 - **micro** - Modern terminal text editor
 - **lynx** - CLI web browser
+  ```bash
   lynx https://example.com
+  ```
 - **browsh** - Modern CLI web browser with graphics support
+  ```bash
   browsh
+  ```
 - **w3m** - Text-based web browser
 - **cmus** - Terminal music player
 - **mutt** - Terminal email client
@@ -652,7 +700,6 @@ grafana-cli   # Grafana dashboard management
 - **buku** - Terminal bookmark manager
 - **weechat** - Extensible chat client
 - **fasd** - Command-line productivity booster
-- **atuin** - Shell history replacement with sync and search
 
 ### System Tools
 - **chezmoi** - Manage dotfiles across multiple machines
@@ -661,6 +708,32 @@ grafana-cli   # Grafana dashboard management
 - **lazydocker** - Terminal Docker management
 - **kdash** - Kubernetes dashboard
 - **taskwarrior** - Command-line task management
+
+### Window Managers & Desktop Environment
+- **niri** - Scrollable-tiling Wayland compositor - Install: Build from source
+  ```bash
+  # Install dependencies (Ubuntu/Debian)
+  sudo apt install build-essential rustc cargo libxkbcommon-dev \
+    libwayland-dev libinput-dev libdbus-1-dev libsystemd-dev \
+    libudev-dev libseat-dev libdrm-dev libgbm-dev libegl-dev \
+    libgles2-mesa-dev libpango1.0-dev libcairo-gobject2 \
+    libgtk-4-dev libadwaita-1-dev
+  
+  # Clone and build niri
+  git clone https://github.com/YaLTeR/niri.git
+  cd niri
+  cargo build --release
+  
+  # Install binary
+  sudo cp target/release/niri /usr/local/bin/
+  
+  # Create config directory and copy example config
+  mkdir -p ~/.config/niri
+  cp resources/default-config.kdl ~/.config/niri/config.kdl
+  
+  # Start niri (from TTY)
+  niri
+  ```
 
 ### Fun & Productivity
 - **fortune + cowsay + lolcat** - Fun terminal messages
@@ -754,6 +827,128 @@ pip install stripe ccxt
 8. **Set up SSL auto-renewal** with certbot for your domains
 9. **Use docker** for isolated scraping environments
 10. **Monitor server resources** with glances/htop to prevent crashes
+
+## 🚀 Essential Linux Time-Saving Shortcuts & Commands
+
+### Command History & Navigation
+```bash
+# History shortcuts
+!!                                   # Run previous command (great for sudo !!)
+!$                                   # Last argument of previous command
+!*                                   # All arguments of previous command
+!n                                   # Run command number n from history
+^old^new^                           # Replace 'old' with 'new' in previous command
+
+# Directory navigation
+cd -                                # Switch to previous directory
+pushd /path && popd                 # Directory stack navigation
+dirs -v                             # Show directory stack with numbers
+
+# Terminal shortcuts
+Ctrl+R                              # Reverse search through command history
+Ctrl+L                              # Clear screen (faster than typing 'clear')
+Ctrl+A                              # Jump to beginning of line
+Ctrl+E                              # Jump to end of line
+Ctrl+U                              # Delete from cursor to beginning of line
+Ctrl+K                              # Delete from cursor to end of line
+Ctrl+W                              # Delete word before cursor
+Alt+B                               # Move back one word
+Alt+F                               # Move forward one word
+Alt+D                               # Delete word after cursor
+Ctrl+D                              # Exit terminal or end input
+Ctrl+Z                              # Suspend current process
+fg                                  # Bring suspended process to foreground
+bg                                  # Send suspended process to background
+
+# Advanced history features
+fc                                  # Edit last command in $EDITOR
+history | grep pattern              # Search command history
+export HISTCONTROL=ignoreboth       # Ignore duplicates and commands starting with space
+export HISTSIZE=10000               # Increase history size
+export HISTTIMEFORMAT='%F %T '      # Add timestamps to history
+```
+
+### File Operations & Text Processing
+```bash
+# Quick file operations
+ls *                                # List files in all subdirectories (one level)
+mv * ..                             # Move all files to parent directory
+cp file{,.bak}                      # Quick backup (copies file to file.bak)
+
+# Text processing shortcuts
+sort | uniq                         # Sort and remove duplicates
+grep -r "pattern" .                 # Recursive search in current directory
+find . -name "*.py" | xargs grep "pattern"  # Search pattern in Python files
+
+# Pipe operations for data processing
+cat file | grep pattern | sort | uniq -c | sort -nr  # Count occurrences, sort by frequency
+```
+
+### Process & System Management
+```bash
+# Process management
+ps aux | grep process_name          # Find process by name
+kill -9 $(pgrep process_name)       # Kill process by name
+nohup command &                     # Run command in background, immune to hangups
+disown                              # Remove job from shell's job table
+
+# System information shortcuts
+df -h                               # Disk usage in human-readable format
+free -h                             # Memory usage in human-readable format
+lscpu                               # CPU information
+lsblk                               # List block devices
+```
+
+### Aliases & Functions for Productivity
+```bash
+# Add these to ~/.bashrc or ~/.zshrc
+alias c='clear'                     # Quick clear
+alias l='ls -la'                    # Detailed file listing
+alias ..='cd ..'                    # Go up one directory
+alias ...='cd ../..'                # Go up two directories
+alias p8='ping 8.8.8.8'            # Quick ping test
+alias h='history'                   # Short history command
+alias grep='grep --color=auto'     # Colorized grep
+
+# Useful functions
+cdls() { cd "$1" && ls; }           # Change directory and list contents
+mkcd() { mkdir -p "$1" && cd "$1"; } # Create directory and enter it
+extract() {                         # Universal extract function
+  if [ -f $1 ] ; then
+    case $1 in
+      *.tar.bz2)   tar xjf $1     ;;
+      *.tar.gz)    tar xzf $1     ;;
+      *.bz2)       bunzip2 $1     ;;
+      *.rar)       unrar e $1     ;;
+      *.gz)        gunzip $1      ;;
+      *.tar)       tar xf $1      ;;
+      *.tbz2)      tar xjf $1     ;;
+      *.tgz)       tar xzf $1     ;;
+      *.zip)       unzip $1       ;;
+      *.Z)         uncompress $1  ;;
+      *.7z)        7z x $1        ;;
+      *)     echo "'$1' cannot be extracted via extract()" ;;
+    esac
+  else
+    echo "'$1' is not a valid file"
+  fi
+}
+```
+
+### Advanced Shell Features
+```bash
+# Zsh-specific shortcuts (if using zsh)
+# Double ESC                        # Add sudo to previous command (zsh)
+# Ctrl+X Ctrl+E                     # Edit command in $EDITOR
+
+# Bash-specific features
+set -o vi                           # Enable vi mode in bash
+bind '"\C-l": clear-screen'         # Bind Ctrl+L to clear screen
+
+# Tab completion enhancements
+# Install bash-completion: apt install bash-completion
+# Add to ~/.bashrc: source /etc/bash_completion
+```
 
 ## 🔧 Specific eCommerce Workflows
 
