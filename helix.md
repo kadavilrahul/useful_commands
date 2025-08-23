@@ -14,7 +14,7 @@ Helix is a modern, terminal-based text editor written in Rust. Think of it as a 
 
 ### Ubuntu/Debian (Snap)
 ```bash
-sudo snap install helix --classic
+apt update && apt install -y helix
 ```
 
 ### Alternative Installation Methods
