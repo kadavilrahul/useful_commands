@@ -144,6 +144,47 @@ netsh interface portproxy show all
 # Delete port forwarding rule
 netsh interface portproxy delete v4tov4 listenport=<port>
 ```
+## Access root folders
+## Connect to root
+```bash
+sudo apt update
+```
+Install and start OpenSSH server inside WSL:
+```bash
+sudo apt install openssh-server -y
+```
+```bash
+sudo service ssh start
+```
+Check it’s running:
+```bash
+ps aux | grep sshd
+```
+Set a password for root
+```
+sudo passwd root
+```
+Open the SSH server config inside WSL:
+```bash
+sudo nano /etc/ssh/sshd_config
+```
+Find these lines (they may be commented out with #):
+```
+PermitRootLogin prohibit-password
+```
+or
+```
+PermitRootLogin no
+```
+
+Change it to:
+```
+PermitRootLogin yes
+```
+Try to connect to root
+```bash
+ssh root@localhost
+```
 
 ## WSL Management Commands
 
