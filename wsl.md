@@ -186,6 +186,40 @@ Try to connect to root
 ssh root@localhost
 ```
 
+## Open WSL root in VS Code
+
+Test SSH inside WSL first
+From inside WSL:
+```
+ssh root@localhost
+```
+If it asks for a password, try your WSL root password
+If yo uget error then remove the old key
+Run this in PowerShell:
+```
+ssh-keygen -R localhost
+```
+
+Retry SSH, run again:
+```
+ssh root@localhost
+```
+Generate and connect with SSH keys
+
+ON WINDOWS POWERSHELL
+
+1. Remove outdated host key:
+ssh-keygen -f "$env:USERPROFILE\.ssh\known_hosts" -R localhost
+
+2. Generate SSH keys (if you don't have them):
+ssh-keygen -t rsa -b 4096 -C "kadavil.rahul@gmail.com"
+
+3. Copy SSH key to server:
+type $env:USERPROFILE\.ssh\id_rsa.pub | ssh root@localhost "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+
+4. Connect to server:
+ssh root@localhost
+
 ## WSL Management Commands
 
 ### Version and Distribution Management
