@@ -1,6 +1,7 @@
 # Linux Commands Reference
 
 ## 📋 Table of Contents
+- [Important Commands](#important-commands)
 - [Custom Commands and Aliases](#custom-commands-and-aliases)
 - [Command History Management](#command-history-management)
 - [System Information](#system-information)
@@ -12,77 +13,28 @@
 - [SSH Operations](#ssh-operations)
 - [Monitoring](#monitoring)
 - [Swap Management](#swap-management)
+- [Directory and File Counting](#directory-and-file-counting)
 - [Other Commands](#other-commands)
+
+## Important Commands
+
+### Quick Counting Operations
+
+#### Count Immediate Subfolders
+```bash
+find . -mindepth 1 -maxdepth 1 -type d | wc -l
+```
+**Purpose**: Get count of direct subdirectories without listing them
+
+#### Count CSV File Rows
+```bash
+wc -l file.csv
+```
+**Purpose**: Count total rows in CSV file (including header)
 
 ## Custom Commands and Aliases
 
 ### Shell Aliases
-
-#### Clear Command Alias
-**Purpose**: Quick shortcut for clearing the terminal screen
-
-**Implementation**:
-```bash
-# Add to ~/.bashrc
-alias c='clear'
-```
-
-**Usage**:
-```bash
-c  # Clears the terminal screen
-```
-
-**Setup**:
-1. Add the alias to your shell configuration file:
-   ```bash
-   echo "alias c='clear'" >> ~/.bashrc
-   ```
-2. Reload the configuration:
-   ```bash
-   source ~/.bashrc
-   ```
-
-### Smart Functions
-
-#### Clone Command with Fuzzy Search
-**Purpose**: Quickly clone GitHub repositories using keywords with tab completion
-
-**Features**:
-- Fuzzy search by repository name keywords
-- Tab completion for common keywords
-- Clones to current directory and automatically enters the folder
-- Shows repository info after cloning
-- Handles multiple matches with interactive selection
-
-**Implementation**:
-```bash
-# Smart clone function is stored in /root/.clone_helper.sh
-# Automatically loaded via ~/.bashrc
-```
-
-**Usage**:
-```bash
-clone email      # Finds email_automation_private, setup_email_system, etc.
-clone html       # Finds generate_html_from_csv, etc.
-clone wordpress  # Finds install_wordpress_on_lamp, etc.
-clone useful     # Finds useful_commands repo
-```
-
-**Tab Completion Keywords**:
-- `email`, `html`, `csv`, `wordpress`, `woocommerce`, `automation`
-- `generate`, `import`, `install`, `migration`, `backup`, `clone`
-- `useful`, `commands`, `agent`, `streamlit`, `python`, `nodejs`, `go`
-
-**Setup**:
-1. The function is automatically available after running the setup
-2. Uses your existing GitHub configuration from `/root/projects/Repositories/clone_repos/config.json`
-3. Works with both public and private repositories (if token is configured)
-
-**Interactive Features**:
-- If multiple matches found, shows numbered list for selection
-- Press Enter to select the first option
-- Shows README preview and recent commits after cloning
-- Handles existing directories gracefully
 
 ## Command History Management
 
@@ -531,6 +483,60 @@ Make Swap Permanent:
 echo '/swapfile none swap sw 0 0' | sudo tee -a /etc/fstab
 ```
 
+## Directory and File Counting
+
+### Count Immediate Subfolders
+Count number of immediate subfolders only (no listing, just number):
+```bash
+find . -mindepth 1 -maxdepth 1 -type d | wc -l
+```
+
+**Purpose**: Quickly get the count of direct subdirectories without listing them
+
+**Examples**:
+```bash
+cd /var/www/
+find . -mindepth 1 -maxdepth 1 -type d | wc -l  # Count website folders
+```
+
+### Count CSV File Rows
+
+#### Using wc -l (fastest method)
+Count rows in a CSV file:
+```bash
+wc -l file.csv
+```
+
+**Purpose**: Get total line count including header row
+
+**Examples**:
+```bash
+wc -l data.csv          # Shows: 1001 data.csv (1000 data rows + 1 header)
+wc -l *.csv             # Count rows in all CSV files
+wc -l < data.csv        # Shows just the number without filename
+```
+
+#### Data Rows Only (excluding header)
+Count data rows only (excluding header):
+```bash
+tail -n +2 file.csv | wc -l
+```
+
+**Purpose**: Count actual data rows, skipping the header line
+
+**Examples**:
+```bash
+tail -n +2 customers.csv | wc -l    # Count customer records only
+tail -n +2 products.csv | wc -l     # Count product records only
+```
+
+#### Multiple Files
+Count rows in multiple CSV files:
+```bash
+wc -l *.csv                         # All CSV files with filenames
+find . -name "*.csv" -exec wc -l {} +  # Recursive CSV counting
+```
+
 ## Additional Examples
 
 ### Advanced File Operations
@@ -577,12 +583,6 @@ cp -r "/source folder" "/destination folder"
 ```
 
 Search Example:
-```bash
-grep -r "error" /var/log
-```
-
-### Additional Examples
-Search in Log Files:
 ```bash
 grep -r "error" /var/log
 ```

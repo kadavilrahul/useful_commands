@@ -1,6 +1,6 @@
 # Useful Commands Reference
 
-A comprehensive collection of commonly used commands, shortcuts, and guides for different operating systems, editors, and development tools, organized for easy reference and learning.
+A comprehensive collection of commonly used commands, shortcuts, and guides for different operating systems, editors, development tools, and installation methods, organized for easy reference and learning.
 
 ## 🚀 Getting Started
 
@@ -13,7 +13,7 @@ cd useful_commands
 
 ## 📚 Contents
 
-This repository contains reference guides for various command-line interfaces, editors, and development tools:
+This repository contains reference guides for various command-line interfaces, editors, development tools, and installation methods:
 
 ## 📱 Quick Links
 
@@ -33,6 +33,16 @@ This repository contains reference guides for various command-line interfaces, e
 ### 🛠️ Development Tools
 - [**Git Commands**](git.md) - Git version control commands and workflows
 - [**CLI Tools Curated**](cli_tools_curated.md) - Essential CLI tools for eCommerce & development
+
+### 🚀 Installation Guides
+- [**Claude Code**](claude_code/) - Official CLI for Claude AI assistant
+- [**Cloudflare CLI**](cloudflare/) - DNS management and Cloudflare Workers
+- [**Gemini CLI**](gemini/) - Google Gemini AI integration
+- [**GitHub CLI**](gh_cli/) - GitHub command-line tool
+- [**Google Cloud CLI**](google_cloud/) - Google Cloud Platform CLI
+- [**Nix Package Manager**](nix/) - Nix package manager setup
+- [**OpenCode CLI**](opencode/) - AI-powered code assistant
+- [**Revo Dev CLI**](revo_dev/) - Atlassian-integrated development CLI
 
 ## 🎯 Purpose
 
@@ -64,6 +74,14 @@ Each command comes with:
 - **Automation scripts** and shortcuts
 - **Curated tool recommendations**
 
+### 🚀 Installation Methods
+Complete setup guides for:
+- **AI/ML tools** (Claude Code, OpenCode, Gemini CLI)
+- **Cloud platforms** (Google Cloud, Cloudflare)
+- **Development tools** (GitHub CLI, Nix)
+- **Step-by-step installation** with authentication setup
+- **Troubleshooting** for common installation issues
+
 ## 📖 How to Use
 
 ### For Beginners
@@ -88,6 +106,7 @@ Each command comes with:
 2. **VS Code Commands** - IDE productivity shortcuts
 3. **CLI Tools** - Development and deployment tools
 4. **Custom Commands** - Automation and productivity enhancements
+5. **Installation Guides** - Set up AI tools and cloud platforms
 
 ## 🗂️ File Organization
 
@@ -107,6 +126,16 @@ Each command comes with:
 ### Development Tools
 - **git.md** - Git workflows, branching strategies, and advanced features
 - **cli_tools_curated.md** - Essential CLI tools for development and eCommerce
+
+### Installation Guides
+- **claude_code/** - Claude AI CLI setup and authentication
+- **cloudflare/** - Cloudflare Workers and DNS management tools
+- **gemini/** - Google Gemini AI CLI integration
+- **gh_cli/** - GitHub command-line tool installation
+- **google_cloud/** - Google Cloud Platform CLI setup
+- **nix/** - Nix package manager installation and configuration
+- **opencode/** - OpenCode AI assistant setup
+- **revo_dev/** - Atlassian-integrated development CLI
 
 ## 🔍 Quick Search Tips
 
@@ -242,4 +271,4 @@ When using these commands:
 
 ---
 
-**Happy coding!** Whether you're managing systems, writing code, or learning new editors, these guides are designed to make your command-line journey more productive and enjoyable. 🚀
+**Happy coding!** Whether you're managing systems, writing code, learning new editors, or setting up development tools, these guides are designed to make your command-line journey more productive and enjoyable. 🚀
