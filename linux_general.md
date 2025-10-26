@@ -26,6 +26,11 @@ find . -mindepth 1 -maxdepth 1 -type d | wc -l
 ```
 **Purpose**: Get count of direct subdirectories without listing them
 
+#### Count Files
+```bash
+ls -l | grep -v '^d' | wc -l
+```
+
 #### Count CSV File Rows
 ```bash
 wc -l file.csv
