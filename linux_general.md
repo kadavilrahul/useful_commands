@@ -67,7 +67,7 @@ mlr --csv put 'if (NR==1) {$price="5490"}' products.csv > tmp && mv tmp products
 
 - If your CSV has no headers, use:
 ```bash
-mlr --csv --implicit-csv-header put 'if (NR==5) {$3="9999"}' file.csv > tmp && mv tmp file.csv
+mlr --csv --implicit-csv-header put 'if (NR==5) {$3="9999"}' products.csv > tmp && mv tmp products.csv
 ```
 
 ✅ Handles quotes
