@@ -31,11 +31,47 @@ find . -mindepth 1 -maxdepth 1 -type d | wc -l
 ls -l | grep -v '^d' | wc -l
 ```
 
-#### Count CSV File Rows
+#### CSV File commands
+- Count rows
 ```bash
-wc -l file.csv
+wc -l products.csv
 ```
-**Purpose**: Count total rows in CSV file (including header)
+Install csvtool (handles quoted cells safely)
+```bash
+sudo apt install csvtool
+```
+View single row
+Explanation: csvtool drop 4 file.csv → skips the first 4 rows
+```bash
+csvtool drop 4 products.csv | csvtool head 1 -
+```
+
+- View a single cell
+- Explanation: View Column 3, Row 5.
+```bash
+csvtool col 3 products.csv | sed -n '5p'
+```
+- Edit a single cell
+Use mlr (Miller) — the best Linux-native CSV tool
+
+mlr understands quoted fields perfectly.
+
+Install:
+```bash
+sudo apt install miller -y
+```
+
+To change row 5, column "price" to 9999:
+```bash
+mlr --csv put 'if (NR==1) {$price="5490"}' products.csv > tmp && mv tmp products.csv
+```
+
+If your CSV has no headers, use:
+```bash
+mlr --csv --implicit-csv-header put 'if (NR==5) {$3="9999"}' file.csv > tmp && mv tmp file.csv
+```
+
+✅ Handles quotes
 
 ## Custom Commands and Aliases
 
