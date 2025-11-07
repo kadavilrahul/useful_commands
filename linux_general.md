@@ -40,8 +40,8 @@ Install csvtool (handles quoted cells safely)
 ```bash
 sudo apt install csvtool
 ```
-View single row
-Explanation: csvtool drop 4 file.csv → skips the first 4 rows
+- View single row
+- Explanation: csvtool drop 4 file.csv → skips the first 4 rows
 ```bash
 csvtool drop 4 products.csv | csvtool head 1 -
 ```
@@ -52,21 +52,20 @@ csvtool drop 4 products.csv | csvtool head 1 -
 csvtool col 3 products.csv | sed -n '5p'
 ```
 - Edit a single cell
-Use mlr (Miller) — the best Linux-native CSV tool
-
-mlr understands quoted fields perfectly.
+- Use mlr (Miller) — the best Linux-native CSV tool
+- mlr understands quoted fields perfectly.
 
 Install:
 ```bash
 sudo apt install miller -y
 ```
 
-To change row 5, column "price" to 9999:
+- To change row 5, column "price" to 9999:
 ```bash
 mlr --csv put 'if (NR==1) {$price="5490"}' products.csv > tmp && mv tmp products.csv
 ```
 
-If your CSV has no headers, use:
+- If your CSV has no headers, use:
 ```bash
 mlr --csv --implicit-csv-header put 'if (NR==5) {$3="9999"}' file.csv > tmp && mv tmp file.csv
 ```
