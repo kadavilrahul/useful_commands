@@ -33,8 +33,9 @@ ls -l | grep -v '^d' | wc -l
 
 #### Search terms
 ✅ 1.Search terms in current directory (recursive)
+```bash
 grep -Rni "silkroademart\.com" .
-
+```
 Flags explained:
 -R → recursive
 -n → show line numbers
@@ -43,8 +44,9 @@ Flags explained:
 ✅ 2. Search only inside a specific directory
 
 Replace /path/to/dir with your code directory:
+```bash
 grep -Rni "silkroademart\.com" /path/to/dir
-
+```
 #### CSV File commands
 - Count rows
 ```bash
