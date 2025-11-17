@@ -31,6 +31,20 @@ find . -mindepth 1 -maxdepth 1 -type d | wc -l
 ls -l | grep -v '^d' | wc -l
 ```
 
+#### Search terms
+✅ 1.Search terms in current directory (recursive)
+grep -Rni "silkroademart\.com" .
+
+Flags explained:
+-R → recursive
+-n → show line numbers
+-i → case-insensitive
+
+✅ 2. Search only inside a specific directory
+
+Replace /path/to/dir with your code directory:
+grep -Rni "silkroademart\.com" /path/to/dir
+
 #### CSV File commands
 - Count rows
 ```bash
